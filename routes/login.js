@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const User = require('../models/user');
+const User = require('../models/User');
 const { roles } = require('../functions/authentication/auth')
 
 const router = express.Router();

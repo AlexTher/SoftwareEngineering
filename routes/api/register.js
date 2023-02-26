@@ -1,7 +1,7 @@
 const express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-const { User } = require('../../models/User');
+const User = require('../../models/User');
 const bcrypt = require('bcrypt');
 
 //const salt = await bcrypt.genSalt(10);
