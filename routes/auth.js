@@ -30,5 +30,3 @@ router.post('/login', async (req, res) => {
     return res.redirect('/admin-dashboard');
   }
 });
-
-module.exports = router;

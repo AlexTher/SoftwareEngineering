@@ -39,7 +39,7 @@
 	</style>
 </head>
 <body>
-    <form action="/auth/login" method="POST">
+    <form action="/login" method="POST">
         <label for="email">Email:</label>
         <input type="text" id="email" name="email"><br>
     
@@ -49,5 +49,8 @@
         <input type="submit" value="Login">
     </form>
 	<a href="/create_student.ejs" class="button">Add User</a>
+	<a href="/admin/dashboard">Be's Admin</a>
+	<a href="/student/dashboard">Be's Student</a>
+	<a href="/teacher/dashboard">Be's Teacher</a>
 </body>
 </html>

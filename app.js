@@ -3,28 +3,31 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 
+// parsers
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 // Set view engine
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
 // Routers
-const loginRouter = require('./routes/login');
-const authRouter = require('./routes/auth');
+var loginRouter = require('./routes/login');
+var adminRouter = require('./routes/admin');
 
 // API Routers
 const studentAPIRouter = require('./routes/api/students');
 
 // Routes
 app.use('/', loginRouter);
+app.use('/admin', adminRouter);
 
 // API Routes
 app.use('/student', studentAPIRouter);
 
-// Bodyparser
-app.use(express.urlencoded({ extended: false }));
-
 // Connect to database
 mongoose.set('strictQuery', false);
-mongoose.connect(process.env.DB_CONNECTION_URL)
+mongoose.connect(process.env.DB_CONNECTION_URL, { useNewUrlParser: true })
     .then(() => console.log('Connected to database'))
     .catch(err => console.log(err));
 
