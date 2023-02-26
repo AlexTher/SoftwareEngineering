@@ -2,10 +2,11 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const User = require('../models/user');
+const { roles } = require('../functions/authentication/auth')
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/login', (req, res) => {
     res.render('login');
 });
 
@@ -28,13 +29,16 @@ router.post('/login', async (req, res) => {
   
     // Redirect the user to the appropriate dashboard based on their role
     if (user.role === 'student') {
-        req.session.role = 'student';
+        req.session.role = roles.STUDENT;
+        req.session.user = user;
         return res.redirect('/student/dashboard');
-    } else if (user.role === 'teacher') {
-        req.session.role = 'teacher';
+    } else if (user.role === roles.TEACHER) {
+        req.session.role = roles.TEACHER;
+        req.session.user = user;
         return res.redirect('/teacher/dashboard');
-    } else if (user.role === 'admin') {
-        req.session.role = 'admin';
+    } else if (user.role === roles.ADMIN) {
+        req.session.role = roles.ADMIN;
+        req.session.user = user;
         return res.redirect('/admin/dashboard');
     }
 });
