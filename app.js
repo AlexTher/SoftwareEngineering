@@ -7,10 +7,11 @@ require('dotenv/config');
 app.set('view engine', 'ejs');
 
 // Routers
-var loginRouter = require('./routes/login');
+const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
 
 // API Routers
-var studentAPIRouter = require('./routes/api/students');
+const studentAPIRouter = require('./routes/api/students');
 
 // Routes
 app.use('/', loginRouter);
