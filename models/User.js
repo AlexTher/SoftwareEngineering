@@ -13,4 +13,13 @@ const UserSchema = new mongoose.Schema({
     }],
 })
 
-module.exports = mongoose.model('User', UserSchema);
+
+
+async function addUser(name, ID, email, password, role) {
+    const user = new User({name, ID, email, password, role });
+    const savedUser = await user.save();
+    return savedUser;
+}
+
+const User = mongoose.model('User', UserSchema);
+module.exports = { User, addUser };
