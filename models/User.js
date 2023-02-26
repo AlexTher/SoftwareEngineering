@@ -5,8 +5,12 @@ const UserSchema = new mongoose.Schema({
     ID: { type: Number, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, enum: ['student', 'teacher', 'admin'], required: true },
+    role: { type: String, enum: ['student', 'teacher', 'admin'], required: true, default: 'student' },
     data: { type: mongoose.Schema.Types.ObjectId, refPath: 'role' },
+    class: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Class', // reference to the Class model
+    }],
 })
 
 module.exports = mongoose.model('User', UserSchema);
