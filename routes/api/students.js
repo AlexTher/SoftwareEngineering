@@ -2,6 +2,7 @@ const express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Student = require('../../models/Student');
+const { User } = require('../../models/User');
 
 
 
@@ -25,7 +26,20 @@ I'll make what I make as I go
 // create a new student
 router.post('/register', async (req, res) => {
     console.log(req.body);
-    res.send(req.body);
+    try {
+        // Get user input from registration form
+        const { name, ID, email, password, role } = req.body;
+    
+        // Add user to database
+        const savedUser = await addUser(name, ID, email, password, role);
+    
+        // Redirect to login page
+        res.redirect('/');
+    } catch (err) {
+        // Handle errors
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
     // const student = new Student({
     //     user_id: req.body.id,
     //     name: req.body.name,
@@ -38,6 +52,12 @@ router.post('/register', async (req, res) => {
     //     res.json({ message: err });
     // }
 });
+
+async function addUser(name, ID, email, password, role) {
+    const user = new User({name, ID, email, password, role });
+    const savedUser = await user.save();
+    return savedUser;
+}
 
 // // get specific student
 // router.get('/:studentID', async (req, res) => {
