@@ -1,13 +1,12 @@
 # SoftwareEngineering
+# Nexus Web App
 ---
-*Potential Basis for Nexus*
-
 ## Setup
 1. run `npm install` in a terminal window at the top level directory (this will install all the dependancies for you)
 2. run `npm run dev` if you want the dev environment that automatically relaunches the webpage when things are changed. Right now the port is `localhost:5000`
 3. run `npm run start` if you want to just run the app normally
 
-## Dependancies
+## Dependencies
 - Express (For the framework)
 - Express Session (Stores a user session, which makes it possible to track who is currently logged in. Also part of authentication. Only users with correct role are able to access certain webpages)
 - ejs (View engine \**makes variables in html usable*\*)
