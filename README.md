@@ -1,5 +1,4 @@
-# SoftwareEngineering
-# Nexus Web App
+# SoftwareEngineering -- Nexus Web App
 ---
 ## Setup
 1. run `npm install` in a terminal window at the top level directory (this will install all the dependancies for you)
