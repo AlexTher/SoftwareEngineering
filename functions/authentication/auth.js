@@ -5,7 +5,7 @@ const roles = {
 };
 
 const restrictAccess = (role) => (req, res, next) => {
-    if (!req.session.role || req.session.role !== role) {
+    if (!req.session.user || req.session.user.role !== role) {
     // If the user is not authenticated or does not have the required role, redirect to the login page
     res.redirect('/login');
     // } else if (!access[role].includes(req.path)) {
