@@ -13,3 +13,6 @@
 - bcrypt (Allowing hashing of passwords that are stored on the mongoDB database. Also checks passowords against database when loggin in -- **Extreemly important and is the backbone of the login system**)
 - dotenv (Industry standard for declaring useful info for environments \**ex. dev prod*\*. Currently not used for much and is not that important)
 - nodemon (\**Just for dev environment*\* Automatically relaunches the server whenever something is changed. Will make it a lot easier for the frontend team to edit things if the webpage is constantly updating automatically. **You must use `npm run dev` for nodemon to work**
+
+## Documentation
+Google Docs - [documentation](https://docs.google.com/document/d/1jGi6pwGpeuhBtzicHFbgT34Hv3KIvkNSRB7ALmAn9VY/edit?usp=sharing)
