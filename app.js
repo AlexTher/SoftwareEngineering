@@ -2,6 +2,9 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 
+//import bootstrap from 'bootstrap'
+//const bootstrap = require('bootstrap');
+
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
@@ -47,7 +50,3 @@ mongoose.connect(process.env.DB_CONNECTION_URL, { useNewUrlParser: true })
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server on port ${PORT}`));
-
-// Get methods
-
-app.get
