@@ -1,10 +1,13 @@
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
+
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 
 // parsers
+app.use(expressLayouts)
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -18,6 +21,7 @@ app.use(session({
 // Set view engine
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+app.set('layout', './layouts/layout');
 
 // Routers
 var loginRouter = require('./routes/login');
@@ -43,3 +47,7 @@ mongoose.connect(process.env.DB_CONNECTION_URL, { useNewUrlParser: true })
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server on port ${PORT}`));
+
+// Get methods
+
+app.get
