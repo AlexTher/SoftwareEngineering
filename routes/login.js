@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', { title: 'Login'});
 });
 
 router.post('/login', async (req, res) => {
