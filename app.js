@@ -13,6 +13,7 @@ require('dotenv/config');
 app.use(expressLayouts)
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(express.static(__dirname+'/views'));
 
 // authentication
 app.use(session({
