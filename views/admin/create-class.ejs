@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class Creation Form</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		
+		label {
+			margin-bottom: 10px;
+		}
+		
+		input[type=text], input[type=email] {
+			padding: 5px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+			width: 300px;
+			height: 30px;
+			font-size: 16px;
+		}
+		
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<form action="/add-classes" method="POST">
+		<label for="className">Class Name:</label>
+		<input type="text" id="className" name="className" required>
+	  
+		<label for="classID">Class ID:</label>
+		<input type="number" id="classID" name="classID" required><br>
+	  
+		<fieldset>
+			<legend>Class schedule:</legend>
+			<div class="day">
+			  <label for="monday">Monday:</label>
+			  <input type="checkbox" id="monday" name="schedule[0][day]" value="M">
+			  <input type="time" id="mondayStart" name="schedule[0][startTime]">
+			  <input type="time" id="mondayEnd" name="schedule[0][endTime]">
+			</div>
+		  
+			<div class="day">
+			  <label for="tuesday">Tuesday:</label>
+			  <input type="checkbox" id="tuesday" name="schedule[1][day]" value="T">
+			  <input type="time" id="tuesdayStart" name="schedule[1][startTime]">
+			  <input type="time" id="tuesdayEnd" name="schedule[1][endTime]">
+			</div>
+		  
+			<div class="day">
+			  <label for="wednesday">Wednesday:</label>
+			  <input type="checkbox" id="wednesday" name="schedule[2][day]" value="W">
+			  <input type="time" id="wednesdayStart" name="schedule[2][startTime]">
+			  <input type="time" id="wednesdayEnd" name="schedule[2][endTime]">
+			</div>
+		  
+			<div class="day">
+			  <label for="thursday">Thursday:</label>
+			  <input type="checkbox" id="thursday" name="schedule[3][day]" value="Th">
+			  <input type="time" id="thursdayStart" name="schedule[3][startTime]">
+			  <input type="time" id="thursdayEnd" name="schedule[3][endTime]">
+			</div>
+		  
+			<div class="day">
+			  <label for="friday">Friday:</label>
+			  <input type="checkbox" id="friday" name="schedule[4][day]" value="F">
+			  <input type="time" id="fridayStart" name="schedule[4][startTime]">
+			  <input type="time" id="fridayEnd" name="schedule[4][endTime]">
+			</div>
+		  
+			<div class="day">
+			  <label for="saturday">Saturday:</label>
+			  <input type="checkbox" id="saturday" name="schedule[5][day]" value="Sa">
+			  <input type="time" id="saturdayStart" name="schedule[5][startTime]">
+			  <input type="time" id="saturdayEnd" name="schedule[5][endTime]">
+			</div>
+		  
+			<div class="day">
+			  <label for="sunday">Sunday:</label>
+			  <input type="checkbox" id="sunday" name="schedule[6][day]" value="Su">
+			  <input type="time" id="sundayStart" name="schedule[6][startTime]">
+			  <input type="time" id="sundayEnd" name="schedule[6][endTime]">
+			</div>
+		  </fieldset>
+<!--
+		<label for="teacher">Teacher:</label>
+		<select id="teacher" name="teacher" required>
+			<option value="">--Select a Teacher--</option>
+		</select>
+	
+		<label for="students">Students:</label>
+		<select id="students" name="students[]" multiple required>
+		</select>
+	
+		<label for="className">Classroom Name:</label>
+		<input type="text" id="className" name="className" required>
+	
+		<label for="schedule">Class Schedule:</label>
+		<div id="schedule">
+		</div>
+	-->
+		<button type="submit">Create Class</button>
+	</form>
+</body>
+</html>

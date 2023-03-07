@@ -34,6 +34,7 @@ var adminRouter = require('./routes/admin');
 // API Routers
 const studentAPIRouter = require('./routes/api/students');
 const registrationAPIRouter = require('./routes/api/register');
+const classAPIRouter = require('./routes/api/add-classes');
 
 // Routes
 app.use('/', loginRouter);
@@ -42,6 +43,7 @@ app.use('/admin', adminRouter);
 // API Routes
 app.use('/student', studentAPIRouter);
 app.use('/register', registrationAPIRouter);
+app.use('/add-classes', classAPIRouter);
 
 // Connect to database
 mongoose.set('strictQuery', false);
