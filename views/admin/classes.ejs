@@ -1,4 +1,82 @@
 <!DOCTYPE html>
 <html>
+    <body>
     <p>This is Classes</p>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="inputSubject">Subject</label>
+                <select id="inputSubject" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Chemistry</option>
+                    <option>Computer Science</option>
+                    <option>Communication</option>
+                    <option>History</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputID">Course ID</label>
+                <input type="text" class="form-control" id="inputID" placeholder="3201-1">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputPathway">Pathway</label>
+                <select id="inputPathway" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>GA</option>
+                    <option>FL</option>
+                    <option>WC</option>
+                    <option>OVC</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputHour">Credits</label>
+                <select id="inputHour" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>1.00</option>
+                    <option>2.00</option>
+                    <option>3.00</option>
+                    <option>4.00</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputTime">Time</label>
+                <select id="inputTime" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>8:30am</option>
+                    <option>9:30am</option>
+                    <option>10:30am</option>
+                    <option>11:30am</option>
+                    <!--functionality where if you choose certain days, different time options-->
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label" for="checkboxes">Weekdays</label>
+            </div> 
+            <div class="form-group col-md-6">
+                <label class="col-md-1 checkbox-inline" for="checkboxes-1">
+                    <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+                    Mo
+                </label>
+                <label class="col-md-1 checkbox-inline" for="checkboxes-2"> 
+                    <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
+                    Tu
+                </label>
+                <label class="col-md-1 checkbox-inline" for="checkboxes-3">
+                    <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
+                    We
+                </label>
+                <label class="col-md-1 checkbox-inline" for="checkboxes-4">
+                    <input type="checkbox" name="checkboxes" id="checkboxes-4" value="5">
+                    Th
+                </label>
+                <label class="col-md-1 checkbox-inline" for="checkboxes-5">
+                    <input type="checkbox" name="checkboxes" id="checkboxes-5" value="6">
+                    Fr
+                </label>
+            </div> 
+        </div>
+    </form>
+    </body>
 </html>
