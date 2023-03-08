@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style>
+            body{
+			    text-align: center;
+            }
+            form{
+                width: 900px;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 4%;
+                padding-bottom: 4%;
+                /*border: 5px solid black;*/
+                margin: 0;
+                background-color: white;
+                display: inline-block;
+                align-items: center;
+                margin: 40px; 
+                box-shadow: 1px 0px 10px 0px #b0b0b0;
+            }
+            .form-group{
+                padding: 1.5%;
+            }
+        </style>
+    </head>
     <body>
-    <p>This is Classes</p>
     <form>
+
         <div class="form-row">
+
+            <!--Subject Dropdown Menu-->
             <div class="form-group col-md-8">
-                <label for="inputSubject">Subject</label>
                 <select id="inputSubject" class="form-control">
-                    <option selected>Choose...</option>
+                    <option selected>Subject...</option>
                     <option>Chemistry</option>
                     <option>Computer Science</option>
                     <option>Communication</option>
                     <option>History</option>
                 </select>
+                <!--Allow multiple selection?-->
             </div>
+
+            <!--Course ID Text Box-->
             <div class="form-group col-md-4">
-                <label for="inputID">Course ID</label>
-                <input type="text" class="form-control" id="inputID" placeholder="3201-1">
+                <input type="text" class="form-control" id="inputID" placeholder="Course ID">
+                <!--Maybe have hover over note for fields to help student with format-->
             </div>
         </div>
+
         <div class="form-row">
-            <div class="form-group col-md-2">
-                <label for="inputPathway">Pathway</label>
+
+            <!--Pathway Dropdown Menu-->
+            <div class="form-group col-md-3">
                 <select id="inputPathway" class="form-control">
-                    <option selected>Choose...</option>
+                    <option selected>Pathway...</option>
                     <option>GA</option>
                     <option>FL</option>
                     <option>WC</option>
                     <option>OVC</option>
                 </select>
             </div>
+
+            <!--Credit Dropdown Menu-->
             <div class="form-group col-md-2">
-                <label for="inputHour">Credits</label>
                 <select id="inputHour" class="form-control">
-                    <option selected>Choose...</option>
+                    <option selected>Hours...</option>
                     <option>1.00</option>
                     <option>2.00</option>
                     <option>3.00</option>
                     <option>4.00</option>
                 </select>
             </div>
+
+            <!--Time Dropdown Menu-->
             <div class="form-group col-md-2">
-                <label for="inputTime">Time</label>
                 <select id="inputTime" class="form-control">
-                    <option selected>Choose...</option>
+                    <option selected>Time...</option>
                     <option>8:30am</option>
                     <option>9:30am</option>
                     <option>10:30am</option>
@@ -51,31 +83,37 @@
                     <!--functionality where if you choose certain days, different time options-->
                 </select>
             </div>
-            <div class="form-group col-md-6">
-                <label class="col-md-4 control-label" for="checkboxes">Weekdays</label>
-            </div> 
-            <div class="form-group col-md-6">
-                <label class="col-md-1 checkbox-inline" for="checkboxes-1">
-                    <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
-                    Mo
-                </label>
-                <label class="col-md-1 checkbox-inline" for="checkboxes-2"> 
-                    <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
-                    Tu
-                </label>
-                <label class="col-md-1 checkbox-inline" for="checkboxes-3">
-                    <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
-                    We
-                </label>
-                <label class="col-md-1 checkbox-inline" for="checkboxes-4">
-                    <input type="checkbox" name="checkboxes" id="checkboxes-4" value="5">
-                    Th
-                </label>
-                <label class="col-md-1 checkbox-inline" for="checkboxes-5">
-                    <input type="checkbox" name="checkboxes" id="checkboxes-5" value="6">
-                    Fr
-                </label>
-            </div> 
+
+
+            <!--Weekday Selection Checkboxes-->
+			<div class="form-group col-md-5">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					Mo
+				</label>
+				<label class="checkbox-inline"> 
+					<input type="checkbox" value="">
+					Tu
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					We
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					Th
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					Fr
+				</label>
+			</div> 
+
+            <!--Search Button-->
+			<!-- <div class="form-group col-md-12">
+				<button type="submit" class="btn btn-primary">Find</button>
+			</div> -->
+
         </div>
     </form>
     </body>

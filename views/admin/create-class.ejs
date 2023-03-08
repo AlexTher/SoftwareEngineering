@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class Registration Form</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		form{
+			width: 450px;
+  			padding-left: 5%;
+			padding-right: 5%;
+			padding-top: 4%;
+			padding-bottom: 4%;
+  			/*border: 5px solid black;*/
+  			margin: 0;
+			background-color: white;
+			display: inline-block;
+			align-items: center;
+			margin: 40px; 
+			box-shadow: 1px 0px 10px 0px #b0b0b0;
+		}
+		.form-group{
+			padding: 1.5%;
+		}	
+	</style>
+
+</head>
+<body>
+	
+	<form action="/register" method="POST">
+			
+			<!--Add Class Title-->
+			<div class="form-group">
+				<h2> Add Class </h2>
+			</div>
+
+			<!--Class Name Text Box-->
+			<div class="form-group">
+                <input type="text" class="form-control" id="inputClassName" placeholder="Class Name">
+			</div>
+
+			<!--Teacher Dropdown Menu-->
+			<div class="form-group">
+                <select id="inputTeacher" class="form-control">
+                    <option selected>Teacher...</option>
+                    <option>Britton Horn</option>
+                    <option>Matthew Hibbs</option>
+                    <option>Paul Myers</option>
+                </select>
+			</div>
+
+			<div class="form-row">
+
+				<!--Department Dropdown Menu-->
+				<div class="form-group col-md-8">
+					<select id="inputTeacher" class="form-control">
+						<option selected>Department...</option>
+						<option>Computer Science</option>
+						<option>Communication</option>
+						<option>Chemistry</option>
+					</select>
+				</div>
+
+				<!--Location Dropdown Menu-->
+				<div class="form-group col-md-4">
+					<select id="inputLocation" class="form-control">
+						<option selected>Location...</option>
+						<option>CSI</option>
+						<option>Hasell</option>
+						<option>Dicke Hall</option>
+					</select>
+				<!--Include room number yet?-->
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<!--Class Start Time Text Box-->
+				<div class="form-group col-md-5">
+					<input type="time" class="form-control" id="inputStartTime" placeholder="Time">
+				</div>
+
+				<div class="form-group col-md-2">
+					<h6>to</h6>
+				</div>
+
+				<!--Class End Time Text Box-->
+				<div class="form-group col-md-5">
+					<input type="time" class="form-control" id="inputEndTime" placeholder="Time">
+				</div>
+
+			</div>
+
+			<!--Weekday Selection Checkboxes-->
+			<div class="form-group">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					Mo
+				</label>
+				<label class="checkbox-inline"> 
+					<input type="checkbox" value="">
+					Tu
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					We
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					Th
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">
+					Fr
+				</label>
+			</div> 
+
+			<div class="form-row">
+
+				<!--Credits Dropdown Menu-->
+				<div class="form-group col-md-4">
+					<select id="inputHour" class="form-control">
+						<option selected>Credits...</option>
+						<option>1.00</option>
+						<option>2.00</option>
+						<option>3.00</option>
+						<option>4.00</option>
+					</select>
+				</div>
+
+				<!--Class ID Text Box-->
+				<div class="form-group col-md-8">
+					<input type="text" class="form-control" id="inputClassID" placeholder="Class ID">	
+					<!--put restrictions on how long input ID can be?-->
+				</div>
+
+			</div>
+
+			<!--Pathways Selection Checkboxes-->
+			<div class="form-group">
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> WC
+				</label>
+				<label class="checkbox-inline"> 
+					<input type="checkbox" value=""> OVC
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> HP
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> UD
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> FL
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> GA
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> DL
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> NS
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> PE
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> FYE
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> CE
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value=""> QR
+				</label>
+			</div> 
+
+			<!--Description Text Box-->
+			<div class="form-group">
+            	<textarea class="form-control" id="comment" rows="5" placeholder="Short description for new class..."></textarea>	
+			</div>
+
+			<!--Submit Button-->
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+	</form>
+
+</body>
+</html>
