@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!--Header-->
+	<%- include('../partials/header.ejs')%>
+
 	<title>Class Registration Form</title>
 	<style>
 		body{
@@ -28,7 +31,7 @@
 </head>
 <body>
 	
-	<form action="/register" method="POST">
+	<form action="/add-class" method="POST">
 			
 			<!--Add Class Title-->
 			<div class="form-group">
@@ -37,7 +40,7 @@
 
 			<!--Class Name Text Box-->
 			<div class="form-group">
-                <input type="text" class="form-control" id="inputClassName" placeholder="Class Name">
+                <input type="text" class="form-control" id="inputClassName" placeholder="Class Name" required>
 			</div>
 
 			<!--Teacher Dropdown Menu-->
@@ -132,7 +135,7 @@
 
 				<!--Class ID Text Box-->
 				<div class="form-group col-md-8">
-					<input type="text" class="form-control" id="inputClassID" placeholder="Class ID">	
+					<input type="text" class="form-control" id="inputClassID" placeholder="Class ID" required>	
 					<!--put restrictions on how long input ID can be?-->
 				</div>
 
