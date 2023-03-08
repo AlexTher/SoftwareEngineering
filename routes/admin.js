@@ -11,7 +11,6 @@ router.get('/dashboard', /*restrictAccess(roles.ADMIN),*/ (req, res) => {
 router.get('/create-user', /*restrictAccess(roles.ADMIN),*/ (req, res) => {
     res.render('admin/create-user');
 });
-
 router.get('/create-class', /*restrictAccess(roles.ADMIN),*/ (req, res) => {
     res.render('admin/create-class');
 });
