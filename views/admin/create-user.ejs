@@ -69,19 +69,31 @@
 				<h2> Add User </h2>
 			</div>
 
-			<!--First Name Text Box-->
+			<!--Name Text Box-->
 			<div class="form-group">
-                <input type="text" class="form-control" id="inputFstName" placeholder="First Name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="User Name" required>
 			</div>
 
-			<!--Last Name Text Box-->
+			<!--User ID Text Box-->
 			<div class="form-group">
-                <input type="text" class="form-control" id="inputLstName" placeholder="Last Name">
+            	<input type="number" class="form-control" id="ID" name="ID" placeholder="User ID" required>	
+				<!--put restrictions on how long input ID can be?-->
+			</div>
+
+			<!--Email Text Box-->
+			<div class="form-group">
+            	<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>	
+			</div>
+
+			<!--Password Text Box-->
+			<div class="form-group">
+            	<input type="password" class="form-control" id="password" name="password" placeholder="Password">	
+				<!--randmonly generate password?-->
 			</div>
 
 			<!--Status Dropdown Menu-->
 			<div class="form-group">
-                <select id="inputStatus" class="form-control">
+                <select id="role" name="role" class="form-control" required>
                     <option selected>Status...</option>
                     <option>Admin</option>
                     <option>Teacher</option>
@@ -89,57 +101,11 @@
                 </select>
 			</div>
 
-	  		<!--User ID Text Box-->
-			<div class="form-group">
-            	<input type="text" class="form-control" id="inputID" placeholder="User ID">	
-				<!--put restrictions on how long input ID can be?-->
-			</div>
-
-			<!--Email Text Box-->
-			<div class="form-group">
-            	<input type="text" class="form-control" id="inputEmail" placeholder="Email">	
-			</div>
-
-			<!--Password Text Box-->
-			<div class="form-group">
-            	<input type="text" class="form-control" id="inputPassword" placeholder="Password">	
-				<!--randmonly generate password?-->
-			</div>
-
 			<!--Submit Button-->
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">Add User</button>
 			</div>
 	</form>
-
-	<!--<form action="/register" method="POST">
-		<div>
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" required>
-		  </div>
-		  <div>
-			<label for="ID">ID:</label>
-			<input type="number" id="ID" name="ID" required>
-		  </div>
-		  <div>
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" required>
-		  </div>
-		  <div>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" required>
-		  </div>
-		  <div>
-			<label for="role">Role:</label>
-			<select id="role" name="role" required>
-			  <option value="">Select role</option>
-			  <option value="student">Student</option>
-			  <option value="teacher">Teacher</option>
-			  <option value="admin">Admin</option>
-			</select>
-		  </div>
-		  <button type="submit">Register</button>
-	</form>-->
 
 </body>
 </html>
