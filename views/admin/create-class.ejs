@@ -35,6 +35,7 @@
 		}
 	</style>
 </head>
+<!-- This is just a form that works, does not look good or work efficiently -->
 <body>
 	<form action="/add-classes" method="POST">
 		<label for="className">Class Name:</label>
@@ -45,43 +46,73 @@
 
 		<div class="form-group">
 			<label for="pathwaysRequirements">Pathways Requirements:</label>
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysWC" value="WC">
+			<input type="checkbox" name="pathways[]" id="pathwaysWC" value="WC">
 			<label for="pathwaysWC">WC</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysOVC" value="OVC">
+			<input type="checkbox" name="pathways[]" id="pathwaysOVC" value="OVC">
 			<label for="pathwaysOVC">OVC</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysHP" value="HP">
+			<input type="checkbox" name="pathways[]" id="pathwaysHP" value="HP">
 			<label for="pathwaysHP">HP</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysUD" value="UD">
+			<input type="checkbox" name="pathways[]" id="pathwaysUD" value="UD">
 			<label for="pathwaysUD">UD</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysFL" value="FL">
+			<input type="checkbox" name="pathways[]" id="pathwaysFL" value="FL">
 			<label for="pathwaysFL">FL</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysGA" value="GA">
+			<input type="checkbox" name="pathways[]" id="pathwaysGA" value="GA">
 			<label for="pathwaysGA">GA</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysDL" value="DL">
+			<input type="checkbox" name="pathways[]" id="pathwaysDL" value="DL">
 			<label for="pathwaysDL">DL</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysNS" value="NS">
+			<input type="checkbox" name="pathways[]" id="pathwaysNS" value="NS">
 			<label for="pathwaysNS">NS</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysPE" value="PE">
+			<input type="checkbox" name="pathways[]" id="pathwaysPE" value="PE">
 			<label for="pathwaysPE">PE</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysFYE" value="FYE">
+			<input type="checkbox" name="pathways[]" id="pathwaysFYE" value="FYE">
 			<label for="pathwaysFYE">FYE</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysCE" value="CE">
+			<input type="checkbox" name="pathways[]" id="pathwaysCE" value="CE">
 			<label for="pathwaysCE">CE</label>
 		
-			<input type="checkbox" name="pathwaysRequirements[]" id="pathwaysQR" value="QR">
+			<input type="checkbox" name="pathways[]" id="pathwaysQR" value="QR">
 			<label for="pathwaysQR">QR</label>
 		</div>
 	  
+		<div class="form-group">
+			<label for="department">Department:</label>
+			<select id="department" name="department" class="form-control">
+				<option value="" disabled selected>Select a department</option>
+				<option value="Art and Art History">Art and Art History</option>
+				<option value="Biology">Biology</option>
+				<option value="Chemistry">Chemistry</option>
+				<option value="Classical Studies">Classical Studies</option>
+				<option value="Communication">Communication</option>
+				<option value="Computer Science">Computer Science</option>
+				<option value="Economics">Economics</option>
+				<option value="Education">Education</option>
+				<option value="Engineering Science">Engineering Science</option>
+				<option value="English">English</option>
+				<option value="Geosciences">Geosciences</option>
+				<option value="Health Care Administration">Health Care Administration</option>
+				<option value="History">History</option>
+				<option value="Human Communication and Theatre">Human Communication and Theatre</option>
+				<option value="Mathematics">Mathematics</option>
+				<option value="Modern Languages and Literatures">Modern Languages and Literatures</option>
+				<option value="Music">Music</option>
+				<option value="Philosophy">Philosophy</option>
+				<option value="Physics and Astronomy">Physics and Astronomy</option>
+				<option value="Political Science">Political Science</option>
+				<option value="Psychology">Psychology</option>
+				<option value="Religion">Religion</option>
+				<option value="Sociology and Anthropology">Sociology and Anthropology</option>
+			</select>
+		</div>
+
 		<fieldset>
 			<legend>Class schedule:</legend>
 			<div class="day">
