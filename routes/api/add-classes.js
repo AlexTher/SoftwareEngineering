@@ -6,10 +6,10 @@ const mongoose = require('mongoose');
 // Define the POST / route to add a new class
 router.post('/', async (req, res) => {
     try {
-        const { className, classID, schedule } = req.body;
+        const { className, classID, teacher, department, schedule } = req.body;
 
         // Create a new Class object
-        const newClass = await addClass(className, classID, schedule)
+        const newClass = await addClass(className, classID, teacher, department, schedule)
 
         // Return a success response
         res.redirect('/admin/dashboard')
@@ -19,12 +19,14 @@ router.post('/', async (req, res) => {
     }
 });
 // Define the addClass function to add a new class
-async function addClass(className, classID, schedule) {
+async function addClass(className, classID, teacher, department, schedule) {
     try {
         // Create a new Class object
         const newClass = new Class({
             className,
             classID,
+            teacher,
+            department,
             schedule
         });
 

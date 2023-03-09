@@ -1,63 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+	<!--Header-->
 	<%- include('../partials/header.ejs')%>
+	
 	<title>User Registration Form</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+
 	<style>
-		body{
-			text-align: center;
-		}
-		form{
-			width: 450px;
-  			padding-left: 5%;
+		form{	
+			width: 425px;
+			padding-left: 5%;
 			padding-right: 5%;
-			padding-top: 4%;
 			padding-bottom: 4%;
-  			/*border: 5px solid black;*/
-  			margin: 0;
-			background-color: white;
-			display: inline-block;
-			align-items: center;
 			margin: 40px; 
-			box-shadow: 1px 0px 10px 0px #b0b0b0;
 		}
-		.form-group{
-			padding: 1.5%;
-		}
-		
 	</style>
-	<!--<style>
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 50px;
-		}
-		
-		label {
-			margin-bottom: 10px;
-		}
-		
-		input[type=text], input[type=email] {
-			padding: 5px;
-			margin-bottom: 20px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-			width: 300px;
-			height: 30px;
-			font-size: 16px;
-		}
-		
-		input[type=submit] {
-			background-color: #4CAF50;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			cursor: pointer;
-		}
-	</style>-->
 
 </head>
 <body>
@@ -66,39 +26,39 @@
 			
 			<!--Add User Title-->
 			<div class="form-group">
-				<h2> Add User </h2>
+				<h1> Add User </h1>
 			</div>
 
 			<!--Name Text Box-->
 			<div class="form-group">
-                <input type="text" class="form-control" id="name" name="name" placeholder="User Name" required>
+                <input type="text" class="form-control" name="name" placeholder="User Name" required>
 			</div>
 
 			<!--User ID Text Box-->
 			<div class="form-group">
-            	<input type="number" class="form-control" id="ID" name="ID" placeholder="User ID" required>	
+            	<input type="number" class="form-control" name="ID" placeholder="User ID" required>	
 				<!--put restrictions on how long input ID can be?-->
-			</div>
-
-			<!--Email Text Box-->
-			<div class="form-group">
-            	<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>	
-			</div>
-
-			<!--Password Text Box-->
-			<div class="form-group">
-            	<input type="password" class="form-control" id="password" name="password" placeholder="Password">	
-				<!--randmonly generate password?-->
 			</div>
 
 			<!--Status Dropdown Menu-->
 			<div class="form-group">
-                <select id="role" name="role" class="form-control" required>
+                <select name="role" class="form-control" required>
                     <option selected>Status...</option>
                     <option>Admin</option>
                     <option>Teacher</option>
                     <option>Student</option>
                 </select>
+			</div>
+
+			<!--Email Text Box-->
+			<div class="form-group">
+            	<input type="text" class="form-control" name="email" placeholder="Email" required>	
+			</div>
+
+			<!--Password Text Box-->
+			<div class="form-group">
+            	<input type="password" class="form-control" name="password" placeholder="Password">	
+				<!--randmonly generate password?-->
 			</div>
 
 			<!--Submit Button-->

@@ -2,16 +2,20 @@
     <head>
         <!--Header-->
 	    <%- include('../partials/header.ejs')%>
+
+        <link rel="stylesheet" href="/css/style.css">
+
     </head>
 
     <body>
         <h1>Admin Dashboard</h1>
-        <h1>Hello, <%= user.name %>!</h1>
+        <!--<h1>Hello, <%= user.name %>!</h1>-->
         <div>
             <a href="/admin/create-user">Create User</a>
         </div>
+
         <div>
-          <a href="/admin/create-class">Create Class</a>
+            <a href="/admin/create-class">Create Class</a>
         </div>
     </body>
 </html>
