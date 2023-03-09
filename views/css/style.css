@@ -6,6 +6,10 @@ body{
     text-align: center;
 }
 
+main{
+    margin-top: 80px;
+}
+
 form {
     width: 450px;
     padding-left: 7%;
