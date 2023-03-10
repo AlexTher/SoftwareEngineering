@@ -1,73 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login Page</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+
 	<style>
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 50px;
+		h1{
+			margin-bottom: 5%;
 		}
-		
-		label {
-			margin-bottom: 10px;
-		}
-		
-		input[type=text], input[type=password] {
-			padding: 5px;
-			margin-bottom: 20px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-			width: 300px;
-			height: 30px;
-			font-size: 16px;
-		}
-		
-		input[type=submit] {
-			background-color: #4CAF50;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			cursor: pointer;
+
+		form{
+			margin: 12%; 
 		}
 		
 	</style>
 </head>
+
 <body>
 
-    <form action="/login" method="POST">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email"><br>
-    
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br>
-    
-        <input type="submit" value="Login">
-    </form>
+	<!--Nexus Logo-->
+	<div style="position: fixed; left: 20px; top: 20px">
+		<img src="/imgs/nexuslogo.png" alt="Nexus Logo" width="45" height="45">
+	</div>
 
-	<!--<form class="form-horizontal" action="/login" method="POST">
+
+	<form class="form-horizontal" action="/login" method="POST">
+		
+		<h1>Sign In</h1>
+		<p style="font-size: small; text-align: left;">Please enter your Trinity University credintials to access account.</p>
+
+		<!--Email Text Box-->
 		<div class="form-group">
-		   <div class="col-10">
-			  <input type="text" class="form-control" id="email" placeholder="Email">
-		   </div>
+			  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 		</div>
+
+		<!--Password Text Box-->
 		<div class="form-group">
-			<div class="col-lg-10">
-			   <input type="password" class="form-control" id="password" placeholder="Password">
-			</div>
+			<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 		</div>
+
+		<!--Login Button-->
 		<div class="form-group">        
-			<div class="col-sm-10">
-				<input type="submit" value="Login">
-				<button type="button" class="btn btn-primary">Login</button>
-			</div>
+			<button type="submit" value="Login" class="btn btn-primary">Login</button>
 		</div>
-	</form>-->
+	</form>
 </body>
 </html>
