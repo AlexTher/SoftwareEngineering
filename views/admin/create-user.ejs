@@ -1,68 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+	<!--Header-->
+	<%- include('../partials/header.ejs')%>
+	
 	<title>User Registration Form</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+
 	<style>
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 50px;
-		}
-		
-		label {
-			margin-bottom: 10px;
-		}
-		
-		input[type=text], input[type=email] {
-			padding: 5px;
-			margin-bottom: 20px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-			width: 300px;
-			height: 30px;
-			font-size: 16px;
-		}
-		
-		input[type=submit] {
-			background-color: #4CAF50;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			cursor: pointer;
+		form{	
+			width: 425px;
+			padding-left: 5%;
+			padding-right: 5%;
+			padding-bottom: 4%;
 		}
 	</style>
+
 </head>
 <body>
+	
 	<form action="/register" method="POST">
-		<div>
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" required>
-		  </div>
-		  <div>
-			<label for="ID">ID:</label>
-			<input type="number" id="ID" name="ID" required>
-		  </div>
-		  <div>
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" required>
-		  </div>
-		  <div>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" required>
-		  </div>
-		  <div>
-			<label for="role">Role:</label>
-			<select id="role" name="role" required>
-			  <option value="">Select role</option>
-			  <option value="student">Student</option>
-			  <option value="teacher">Teacher</option>
-			  <option value="admin">Admin</option>
-			</select>
-		  </div>
-		  <button type="submit">Register</button>
+			
+			<!--Add User Title-->
+			<div class="form-group">
+				<h1> Add User </h1>
+			</div>
+
+			<!--Name Text Box-->
+			<div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+			</div>
+
+			<!--User ID Text Box-->
+			<div class="form-group">
+            	<input type="number" class="form-control" name="ID" placeholder="User ID" required>	
+				<!--put restrictions on how long input ID can be?-->
+			</div>
+
+			<!--Status Dropdown Menu-->
+			<div class="form-group">
+                <select name="role" class="form-control" required>
+                    <option selected>Status...</option>
+                    <option>Admin</option>
+                    <option>Teacher</option>
+                    <option>Student</option>
+                </select>
+			</div>
+
+			<!--Email Text Box-->
+			<div class="form-group">
+            	<input type="text" class="form-control" name="email" placeholder="Email" required>	
+			</div>
+
+			<!--Password Text Box-->
+			<div class="form-group">
+            	<input type="password" class="form-control" name="password" placeholder="Password">	
+				<!--randmonly generate password?-->
+			</div>
+
+			<!--Submit Button-->
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Add User</button>
+			</div>
 	</form>
+
 </body>
 </html>

@@ -1,26 +1,33 @@
 <header>
-    <!-- <style>
+    <style>
         .navbar {
-            background-color: rgb(255, 249, 244);
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+            top: 0;
+            background-color: rgb(255, 255, 255);
+            height: 70px;
+            box-shadow: 1px 0px 12px 0px #cecece;
         }
-        .nav-link, .navbar-brand{
+        .navbar-nav{
             color: beige;
-            cursor: pointer;
+            margin-top: 10px;
         }
-    </style> -->
-    <nav class="navbar bg-dark" data-bs-theme="dark">
+    </style>
+    <nav class="navbar">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/admin/dashboard">
                 <img src = "/imgs/nexuslogo.png" alt="" width="40" height="40">
             </a>
           </div>
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="#">Home</a></li>-->
-            <li><a href="/admin/create-user">Add User</a></li>
-            <li><a href="/admin/calendar">Calendar</a></li>
-            <li><a href="/admin/classes">Classes</a></li>
+            <!--<li><a href="/admin/create-user">Add User</a></li>-->
+            <!--<li><a href="/admin/create-class">Add Class</a></li>-->
             <li><a href="/admin/users">Users</a></li>
+            <li><a href="/admin/classes">Classes</a></li>
+            <li><a href="/admin/calendar">Calendar</a></li>
           </ul>
         </div>
       </nav>

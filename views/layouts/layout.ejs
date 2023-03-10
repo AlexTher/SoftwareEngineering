@@ -5,19 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        PAGE
+        Default Admin Page
     </title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+		.btn-primary{
+			width: 250px;
+			border-radius: 25px 25px 25px 25px;
+			background-color: #fbc831;
+			-webkit-text-fill-color: rgb(255, 255, 255);
+			/*box-shadow: 0px 1px 1px 1px #c3c3c3;*/
+		}
+
+        body {
+            background-image: url('/imgs/leeroy-cardiac-hill-jpg');
+        }
+	</style>
 </head>
 <body>
+
+    <%- include('../partials/help-button.ejs')%>
+
     <div class="wrapper">
     
-        <%- include('../partials/header.ejs')%>
-        <main><%- body %></main>
-        <%- include('../partials/footer.ejs')%>
+        <div class="bg-image" 
+            style="background-image: url('/*https://pbs.twimg.com/media/Dsolg60U4AAjLji.jpg*/');
+            height: 100vh;
+            background-size: cover;
+            ">    
+            <main>
+                <%- body %>
+            </main>
+
+            <%- include('../partials/footer.ejs')%>
+        </div>
 
     </div>
 </body>
