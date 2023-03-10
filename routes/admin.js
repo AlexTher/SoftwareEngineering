@@ -12,7 +12,7 @@ router.get('/create-user', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/create-user');
 });
 router.get('/calendar', restrictAccess(roles.ADMIN), (req, res) => {
-    res.render('admin/calendar');
+    res.render('admin/calendar',{text: 'Hey'});
 });
 router.get('/classes', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/classes');
