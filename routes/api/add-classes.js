@@ -1,3 +1,6 @@
+const express = require('express');
+var router = express.Router();
+const Class = require('../../models/Class');
 const mongoose = require('mongoose');
 
 // Define the POST / route to add a new class
