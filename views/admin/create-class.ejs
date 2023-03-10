@@ -20,7 +20,7 @@
 </head>
 <body>
 	
-	<form action="/add-classes" method="POST">
+	<form role="form" class="form-horizontal" action="/add-classes" method="POST">
 			
 		<!--Add Class Title-->
 		<div class="form-group">
@@ -81,61 +81,62 @@
 					<option>Dicke Hall</option>
 				</select>
 			</div> -->
-		
-		<div class="form-row" style="white-space: nowrap;">
-			<legend>Class schedule:</legend>
-			<div class="day">
-				<label for="monday">Monday:</label>
-				<input type="checkbox" id="monday" name="schedule[0][day]" value="M">
-				<input type="time" id="mondayStart" name="schedule[0][startTime]">
-				<input type="time" id="mondayEnd" name="schedule[0][endTime]">
-			</div>
-			
-			<div class="day">
-				<label for="tuesday">Tuesday:</label>
-				<input type="checkbox" id="tuesday" name="schedule[1][day]" value="T">
-				<input type="time" id="tuesdayStart" name="schedule[1][startTime]">
-				<input type="time" id="tuesdayEnd" name="schedule[1][endTime]">
-			</div>
-			
-			<div class="day">
-				<label for="wednesday">Wednesday:</label>
-				<input type="checkbox" id="wednesday" name="schedule[2][day]" value="W">
-				<input type="time" id="wednesdayStart" name="schedule[2][startTime]">
-				<input type="time" id="wednesdayEnd" name="schedule[2][endTime]">
-			</div>
-			
-			<div class="day">
-				<label for="thursday">Thursday:</label>
-				<input type="checkbox" id="thursday" name="schedule[3][day]" value="Th">
-				<input type="time" id="thursdayStart" name="schedule[3][startTime]">
-				<input type="time" id="thursdayEnd" name="schedule[3][endTime]">
-			</div>
-			
-			<div class="day">
-				<label for="friday">Friday:</label>
-				<input type="checkbox" id="friday" name="schedule[4][day]" value="F">
-				<input type="time" id="fridayStart" name="schedule[4][startTime]">
-				<input type="time" id="fridayEnd" name="schedule[4][endTime]">
-			</div>
-			
-			<div class="day">
-				<label for="saturday">Saturday:</label>
-				<input type="checkbox" id="saturday" name="schedule[5][day]" value="Sa">
-				<input type="time" id="saturdayStart" name="schedule[5][startTime]">
-				<input type="time" id="saturdayEnd" name="schedule[5][endTime]">
-			</div>
-			
-			<div class="day">
-				<label for="sunday">Sunday:</label>
-				<input type="checkbox" id="sunday" name="schedule[6][day]" value="Su">
-				<input type="time" id="sundayStart" name="schedule[6][startTime]">
-				<input type="time" id="sundayEnd" name="schedule[6][endTime]">
+		<div class="form-group">
+			<div class="form-row" style="white-space: nowrap;">
+				<legend>Class schedule:</legend>
+				<div class="day">
+					<label for="monday">Monday:</label>
+					<input type="checkbox" id="monday" name="schedule[0][day]" value="M">
+					<input type="time" id="mondayStart" name="schedule[0][startTime]">
+					<input type="time" id="mondayEnd" name="schedule[0][endTime]">
+				</div>
+				
+				<div class="day">
+					<label for="tuesday">Tuesday:</label>
+					<input type="checkbox" id="tuesday" name="schedule[1][day]" value="T">
+					<input type="time" id="tuesdayStart" name="schedule[1][startTime]">
+					<input type="time" id="tuesdayEnd" name="schedule[1][endTime]">
+				</div>
+				
+				<div class="day">
+					<label for="wednesday">Wednesday:</label>
+					<input type="checkbox" id="wednesday" name="schedule[2][day]" value="W">
+					<input type="time" id="wednesdayStart" name="schedule[2][startTime]">
+					<input type="time" id="wednesdayEnd" name="schedule[2][endTime]">
+				</div>
+				
+				<div class="day">
+					<label for="thursday">Thursday:</label>
+					<input type="checkbox" id="thursday" name="schedule[3][day]" value="Th">
+					<input type="time" id="thursdayStart" name="schedule[3][startTime]">
+					<input type="time" id="thursdayEnd" name="schedule[3][endTime]">
+				</div>
+				
+				<div class="day">
+					<label for="friday">Friday:</label>
+					<input type="checkbox" id="friday" name="schedule[4][day]" value="F">
+					<input type="time" id="fridayStart" name="schedule[4][startTime]">
+					<input type="time" id="fridayEnd" name="schedule[4][endTime]">
+				</div>
+				
+				<div class="day">
+					<label for="saturday">Saturday:</label>
+					<input type="checkbox" id="saturday" name="schedule[5][day]" value="Sa">
+					<input type="time" id="saturdayStart" name="schedule[5][startTime]">
+					<input type="time" id="saturdayEnd" name="schedule[5][endTime]">
+				</div>
+				
+				<div class="day">
+					<label for="sunday">Sunday:</label>
+					<input type="checkbox" id="sunday" name="schedule[6][day]" value="Su">
+					<input type="time" id="sundayStart" name="schedule[6][startTime]">
+					<input type="time" id="sundayEnd" name="schedule[6][endTime]">
+				</div>
 			</div>
 		</div>
-		<div class="form-row">
-
-			<!--Credits Dropdown Menu-->
+		
+		<!-- <div class="form-row">
+			Credits Dropdown Menu-->
 			<!-- <div class="form-group col-md-4">
 				<select id="inputHour" class="form-control">
 					<option selected>Credits...</option>
@@ -144,53 +145,54 @@
 					<option>3.00</option>
 					<option>4.00</option>
 				</select>
-			</div> -->
+			</div> 
+		</div> -->
 
-			<!--Class ID Text Box-->
-			<div class="form-group">
-				<input type="number" class="form-control" name="classID" placeholder="Course ID" required><br>	
-				<!--put restrictions on how long input ID can be?-->
-			</div>
+		<!--Class ID Text Box-->
+		<div class="form-group">
+			<input type="number" class="form-control" name="classID" placeholder="Course ID" required>
+			<!--put restrictions on how long input ID can be?-->
 		</div>
 
 		<!--Pathways Selection Checkboxes-->
 		<div class="form-group">
-			<input type="checkbox" name="pathways[]" id="pathwaysWC" value="WC">
-			<label for="pathwaysWC">WC</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysOVC" value="OVC">
-			<label for="pathwaysOVC">OVC</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysHP" value="HP">
-			<label for="pathwaysHP">HP</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysUD" value="UD">
-			<label for="pathwaysUD">UD</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysFL" value="FL">
-			<label for="pathwaysFL">FL</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysGA" value="GA">
-			<label for="pathwaysGA">GA</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysDL" value="DL">
-			<label for="pathwaysDL">DL</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysNS" value="NS">
-			<label for="pathwaysNS">NS</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysPE" value="PE">
-			<label for="pathwaysPE">PE</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysFYE" value="FYE">
-			<label for="pathwaysFYE">FYE</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysCE" value="CE">
-			<label for="pathwaysCE">CE</label>
-		
-			<input type="checkbox" name="pathways[]" id="pathwaysQR" value="QR">
-			<label for="pathwaysQR">QR</label>
-		</div> 
+			<div class="form-row">
+				<div class="col-xs-3" style="white-space:nowrap;">
+					<input type="checkbox" name="pathways[]" id="pathwaysWC" value="WC">
+					<label for="pathwaysWC">WC</label>
+				</div>
+				<div class="col-xs-3" style="white-space:nowrap;">
+					<input type="checkbox" name="pathways[]" id="pathwaysOVC" value="OVC">
+					<label for="pathwaysOVC">OVC</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysHP" value="HP">
+					<label for="pathwaysHP">HP</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysUD" value="UD">
+					<label for="pathwaysUD">UD</label>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysFL" value="FL">
+					<label for="pathwaysFL">FL</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysGA" value="GA">
+					<label for="pathwaysGA">GA</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysDL" value="DL">
+					<label for="pathwaysDL">DL</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysNS" value="NS">
+					<label for="pathwaysNS">NS</label>
+				</div>
+			</div>
+		</div>
 
 		<!--Description Text Box-->
 		<div class="form-group">
