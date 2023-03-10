@@ -36,3 +36,9 @@ form {
     -webkit-text-fill-color: rgb(255, 255, 255);
     /*box-shadow: 0px 1px 1px 1px #c3c3c3;*/
 }
+
+.btn-primary:hover{
+    background-color: #e5b010;
+    -webkit-text-fill-color: #ffffff;
+    /*box-shadow: 0px 1px 1px 1px #c3c3c3;*/
+}
