@@ -46,6 +46,8 @@ app.use('/student', studentAPIRouter);
 app.use('/register', registrationAPIRouter);
 app.use('/add-classes', classAPIRouter);
 
+//Scheduler Code
+
 // Connect to database
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DB_CONNECTION_URL, { useNewUrlParser: true })
