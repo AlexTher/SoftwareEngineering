@@ -12,7 +12,7 @@
                 padding-left: 4%;
                 padding-right: 4%;
                 padding-top: 3%;
-                padding-bottom: 2%;
+                padding-bottom: 5%;
             }
         </style>
     </head>
@@ -100,13 +100,32 @@
 					Fr
 				</label>
 			</div> 
-
+        </div>
             <!--Search Button-->
 			<!-- <div class="form-group col-md-12">
 				<button type="submit" class="btn btn-primary">Find</button>
 			</div> -->
 
-        </div>
+            <div class="form-row">
+               
+
+                <!--Course Level-->
+                <div class="col-md-4">
+                    <select id="inputLevel" class="form-control">
+                        <option selected>Course Level...</option>
+                        <option>1000</option>
+                        <option>2000</option>
+                        <option>3000</option>
+                        <option>4000</option>
+                    </select>
+                </div>
+
+                <!--Professor-->
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="inputProfessor" placeholder="Professor Name">
+                </div>
+            </div>
+            
     </form>
     </body>
 </html>
