@@ -19,7 +19,7 @@ const classSchema = new mongoose.Schema({
                                         'Psychology', 'Religion', 'Sociology and Anthropology'] }],
     //schedule: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ClassSchedule' }]
     // other fields as needed
-    credits: [{ type: Number }],
+    credits: [{ type: Number, enum: [0,1,2,3,4,5,6,7,8,9] }],
     description: [{type: String}]
 });
 
