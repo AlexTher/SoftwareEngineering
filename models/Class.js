@@ -6,6 +6,7 @@ const classSchema = new mongoose.Schema({
     students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     room: { type: mongoose.Schema.Types.ObjectId, ref: 'Room' },
     schedule: { type: mongoose.Schema.Types.ObjectId, ref: 'Schedule'},
+    semester: { year: { type: Number }, season: { type: String, enum: ['Spring', 'Fall']}},
 });
 
 module.exports = mongoose.model('Class', classSchema);
