@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ScheduleSchema = new mongoose.Schema({
+const scheduleSchema = new mongoose.Schema({
     classTimes: [{
         day: { type: String, enum: ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'] },
         startTime: { type: String },
