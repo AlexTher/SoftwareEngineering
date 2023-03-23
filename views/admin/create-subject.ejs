@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!--Header-->
+	<%- include('../partials/header.ejs')%>
+
+	<title>Subject Creation Form</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+
+	<style>
+		form{
+  			padding-left: 5%;
+			padding-right: 5%;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<form role="form" class="form-horizontal" action="/add-subjects" method="POST">
+			
+		<!--Add Class Title-->
+		<div class="form-group">
+			<h1> Add Course </h1>
+		</div>
+
+		<!--Class Name Text Box-->
+		<div class="form-group">
+			<input type="text" class="form-control" name="className" placeholder="Course Name" required>
+		</div>
+
+		<!--Department Dropdown Menu-->
+		<div class="form-group">
+			<label for="department">Department:</label>
+			<select class="form-control" id="department" name="department" required>
+			  <% departments.forEach(function(department) { %>
+				<option value="<%= department %>"><%= department %></option>
+			  <% }); %>
+			</select>
+		</div>
+		
+		<!-- Credits Dropdown Menu -->
+		<div class="form-group">
+			<label for="credits">Credits:</label>
+			<select class="form-control" id="credits" name="credits" required>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+			</select>
+		</div>
+
+		<!--Class ID Text Box-->
+		<div class="form-group">
+			<input type="number" class="form-control" name="classID" placeholder="Course ID" required>
+			<!--put restrictions on how long input ID can be?-->
+		</div>
+
+		<!--Pathways Selection Checkboxes-->
+		<div class="form-group">
+			<div class="form-row">
+				<div class="col-xs-3" style="white-space:nowrap;">
+					<input type="checkbox" name="pathways[]" id="pathwaysWC" value="WC">
+					<label for="pathwaysWC">WC</label>
+				</div>
+				<div class="col-xs-3" style="white-space:nowrap;">
+					<input type="checkbox" name="pathways[]" id="pathwaysOVC" value="OVC">
+					<label for="pathwaysOVC">OVC</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysHP" value="HP">
+					<label for="pathwaysHP">HP</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysUD" value="UD">
+					<label for="pathwaysUD">UD</label>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysFL" value="FL">
+					<label for="pathwaysFL">FL</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysGA" value="GA">
+					<label for="pathwaysGA">GA</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysDL" value="DL">
+					<label for="pathwaysDL">DL</label>
+				</div>
+				<div class="col-xs-3" style="display: inline-block;">
+					<input type="checkbox" name="pathways[]" id="pathwaysNS" value="NS">
+					<label for="pathwaysNS">NS</label>
+				</div>
+			</div>
+		</div>
+
+		<!--Description Text Box-->
+		<div class="form-group">
+			<textarea class="form-control" id="comment" name="description" rows="5" placeholder="Short description for new class..."></textarea>	
+		</div>
+
+		<!--Submit Button-->
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Add Class</button>
+		</div>
+	</form>
+</body>
+</html>

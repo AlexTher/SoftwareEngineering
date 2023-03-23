@@ -27,6 +27,18 @@ router.get('/create-class', restrictAccess(roles.ADMIN), async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+router.get('/create-subject', restrictAccess(roles.ADMIN), async (req, res) => {
+    try {
+        // Fetch all schedules from the database
+        const departments = await Subject.distinct('department');
+
+        // Render the class creation form template and pass the schedules variable
+        res.render('admin/create-subject', { departments });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
+});
 router.get('/calendar', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/calendar',{text: 'Hey'});
 });
