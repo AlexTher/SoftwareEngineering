@@ -1,15 +1,27 @@
 const express = require('express');
 var router = express.Router();
 const Class = require('../../models/Class');
+const Subject = require('../../models/Subject');
 const mongoose = require('mongoose');
 
+//GET route for getting subjects from department
+router.get('/subjects', async (req, res) => {
+    try {
+      const { department } = req.query;
+      const subjects = await Subject.find({ department });
+      res.json(subjects);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+});
 // Define the POST / route to add a new class
 router.post('/', async (req, res) => {
     try {
-        const { className, classID, schedule, pathways, department, description} = req.body;
+        const { subject, schedule } = req.body;
 
         // Create a new Class object
-        const newClass = await addClass(className, classID, schedule, pathways, department, description)
+        const newClass = await addClass(subject, schedule)
 
         // Return a success response
         res.redirect('/admin/dashboard')
@@ -19,16 +31,11 @@ router.post('/', async (req, res) => {
     }
 });
 // Define the addClass function to add a new class
-async function addClass(className, classID, schedule, pathways, department, description) {
+async function addClass(subject, schedule) {
     try {
         // Create a new Class object
         const newClass = new Class({
-            className,
-            classID,
-            schedule,
-            pathways, 
-            department, 
-            description
+            subject, schedule
         });
 
         // Save the new class to the database

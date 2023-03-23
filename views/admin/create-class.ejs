@@ -21,16 +21,63 @@
 <body>
 	
 	<form role="form" class="form-horizontal" action="/add-classes" method="POST">
-			
-		<!--Add Class Title-->
+		<!-- Department Dropdown -->
 		<div class="form-group">
-			<h1> Add Course </h1>
+			<label for="department">Department:</label>
+			<select class="form-control" id="department" name="department" required>
+			  <% departments.forEach(function(department) { %>
+				<option value="<%= department %>"><%= department %></option>
+			  <% }); %>
+			</select>
+		</div>
+		<!-- Subject Dropdown -->
+		<div class="form-group">
+			<label for="className">Class name:</label>
+			<select class="form-control" id="className" name="subject" required>
+			</select>
+		</div>
+		<!-- Schedule Dropdown -->
+		<div class="form-group">
+			<label for="schedule">Schedule:</label>
+			<select class="form-control" id="schedule" name="schedule" required>
+				<% schedules.forEach(function(schedule) { %>
+					<option value="<%= schedule._id %>"><%= schedule.classTimes[0].day %> <%= schedule.classTimes[1].day %> <%= schedule.classTimes[0].startTime %> - <%= schedule.classTimes[0].endTime %></option>
+				<% }); %>
+			</select>
 		</div>
 
+		<!-- Script that populatesd Subject dropdown -->
+		<script>
+			$(document).ready(function() {
+			  $('#department').change(function() {
+				const department = $(this).val();
+				$.ajax({
+				  url: '/add-classes/subjects',
+				  data: { department },
+				  success: function(subjects) {
+					const $classNameSelect = $('#className');
+					$classNameSelect.empty();
+					subjects.forEach(function(subject) {
+					  $classNameSelect.append($('<option>', {
+						value: subject._id,
+						text: subject.classID + " - " + subject.className
+					  }));
+					});
+				  }
+				});
+			  });
+			});
+		</script>
+
+		<!--Add Class Title-->
+		<!-- <div class="form-group">
+			<h1> Add Course </h1>
+		</div> -->
+
 		<!--Class Name Text Box-->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<input type="text" class="form-control" name="className" placeholder="Course Name" required>
-		</div>
+		</div> -->
 
 		<!-- Teacher Dropdown Menu
 		<div class="form-group">
@@ -43,7 +90,7 @@
 		</div> -->
 
 		<!--Department Dropdown Menu-->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<select id="inputDepartment" name="department" class="form-control">
 				<option value="" disabled selected>Select a department</option>
 				<option value="Art and Art History">Art and Art History</option>
@@ -70,7 +117,7 @@
 				<option value="Religion">Religion</option>
 				<option value="Sociology and Anthropology">Sociology and Anthropology</option>
 			</select>
-		</div>
+		</div> -->
 
 			<!-- Location Dropdown Menu
 			<div class="form-group col-md-4">
@@ -81,7 +128,7 @@
 					<option>Dicke Hall</option>
 				</select>
 			</div> -->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<div class="form-row" style="white-space: nowrap;">
 				<legend>Class schedule:</legend>
 				<div class="day">
@@ -133,29 +180,33 @@
 					<input type="time" id="sundayEnd" name="schedule[6][endTime]">
 				</div>
 			</div>
-		</div>
-		
-		<!-- <div class="form-row">
-			Credits Dropdown Menu-->
-			<!-- <div class="form-group col-md-4">
-				<select id="inputHour" class="form-control">
+		</div> -->
+
+		<!--Credits Dropdown Menu-->
+		<!-- <div class="form-row">	
+			<div class="form-group col-md-4">
+				<select id="credits" name="credits" class="form-control">
 					<option selected>Credits...</option>
 					<option>1.00</option>
 					<option>2.00</option>
 					<option>3.00</option>
 					<option>4.00</option>
+					<option>5.00</option>
+					<option>6.00</option>
+					<option>7.00</option>
+					<option>8.00</option>
+					<option>9.00</option>
 				</select>
 			</div> 
 		</div> -->
 
 		<!--Class ID Text Box-->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<input type="number" class="form-control" name="classID" placeholder="Course ID" required>
-			<!--put restrictions on how long input ID can be?-->
-		</div>
+		</div> -->
 
 		<!--Pathways Selection Checkboxes-->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<div class="form-row">
 				<div class="col-xs-3" style="white-space:nowrap;">
 					<input type="checkbox" name="pathways[]" id="pathwaysWC" value="WC">
@@ -192,12 +243,12 @@
 					<label for="pathwaysNS">NS</label>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!--Description Text Box-->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<textarea class="form-control" id="comment" name="description" rows="5" placeholder="Short description for new class..."></textarea>	
-		</div>
+		</div> -->
 
 		<!--Submit Button-->
 		<div class="form-group">
