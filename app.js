@@ -48,7 +48,6 @@ app.use('/student', studentAPIRouter);
 app.use('/register', registrationAPIRouter);
 app.use('/add-classes', addClassAPIRouter);
 app.use('/search-classes', searchClassAPIRouter);
-app.use('/add-classes/subjects', classAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
 
 // Connect to database
