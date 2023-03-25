@@ -25,6 +25,7 @@
 		<div class="form-group">
 			<label for="department">Department:</label>
 			<select class="form-control" id="department" name="department" required>
+				<option disabled selected>Select a Department</option>
 			  <% departments.forEach(function(department) { %>
 				<option value="<%= department %>"><%= department %></option>
 			  <% }); %>
@@ -46,28 +47,7 @@
 			</select>
 		</div>
 
-		<!-- Script that populatesd Subject dropdown -->
-		<script>
-			$(document).ready(function() {
-			  $('#department').change(function() {
-				const department = $(this).val();
-				$.ajax({
-				  url: '/add-classes/subjects',
-				  data: { department },
-				  success: function(subjects) {
-					const $classNameSelect = $('#className');
-					$classNameSelect.empty();
-					subjects.forEach(function(subject) {
-					  $classNameSelect.append($('<option>', {
-						value: subject._id,
-						text: subject.classID + " - " + subject.className
-					  }));
-					});
-				  }
-				});
-			  });
-			});
-		</script>
+		
 
 		<!--Add Class Title-->
 		<!-- <div class="form-group">
@@ -255,5 +235,27 @@
 			<button type="submit" class="btn btn-primary">Add Class</button>
 		</div>
 	</form>
+	<!-- Script that populatesd Subject dropdown -->
+	<script>
+		$(document).ready(function() {
+		  $('#department').change(function() {
+			const department = $(this).val();
+			$.ajax({
+			  url: '/add-classes/subjects',
+			  data: { department },
+			  success: function(subjects) {
+				const $classNameSelect = $('#className');
+				$classNameSelect.empty();
+				subjects.forEach(function(subject) {
+				  $classNameSelect.append($('<option>', {
+					value: subject._id,
+					text: subject.classID + " - " + subject.className
+				  }));
+				});
+			  }
+			});
+		  });
+		});
+	</script>
 </body>
 </html>

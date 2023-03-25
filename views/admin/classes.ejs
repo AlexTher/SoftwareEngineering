@@ -23,51 +23,57 @@
 
             <!--Subject Dropdown Menu-->
             <div class="form-group col-md-8">
-                <select id="inputSubject" class="form-control">
-                    <option selected>Subject...</option>
-                    <option>Chemistry</option>
-                    <option>Computer Science</option>
-                    <option>Communication</option>
-                    <option>History</option>
+                <select id="department" class="form-control" name="department" required>
+                    <option selected disabled>Select a Department</option>
+                    <% departments.forEach(function(department) { %>
+                        <option value="<%= department %>"><%= department %></option>
+                    <% }); %>
                 </select>
                 <!--Allow multiple selection?-->
             </div>
 
             <!--Course ID Text Box-->
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="inputID" placeholder="Course ID">
+                <input type="number" class="form-control" id="classID" name="classID" min="1000" max="9999" placeholder="Course ID">
                 <!--Maybe have hover over note for fields to help student with format-->
             </div>
         </div>
 
         <div class="form-row">
 
+            <div class="form-group col-md-8">
+                <select class="form-control" id="className" name="subject" required>
+                    <option selected disabled>Select a Class</option>
+                    <% classes.forEach(function(classItem) { %>
+                        <option value="<%= classItem %>"><%= classItem %></option>
+                    <% }); %>
+                </select>
+            </div>
+
             <!--Pathway Dropdown Menu-->
             <div class="form-group col-md-3">
-                <select id="inputPathway" class="form-control">
-                    <option selected>Pathway...</option>
-                    <option>GA</option>
-                    <option>FL</option>
-                    <option>WC</option>
-                    <option>OVC</option>
+                <select id="pathway" name="pathway" class="form-control">
+                    <option selected disabled>Select a pathway</option>
+                    <% pathways.forEach(function(pathway) { %>
+                        <option value="<%= pathway %>"><%= pathway %></option>
+                    <% }); %>
                 </select>
             </div>
 
             <!--Credit Dropdown Menu-->
             <div class="form-group col-md-2">
-                <select id="inputHour" class="form-control">
-                    <option selected>Hours...</option>
-                    <option>1.00</option>
-                    <option>2.00</option>
-                    <option>3.00</option>
-                    <option>4.00</option>
+                <select id="credits" name="credits" class="form-control">
+                    <option selected disabled>Select Credit Amount</option>
+                    <% credits.forEach(function(credit) { %>
+                        <option value="<%= credit %>"><%= credit %></option>
+                    <% }); %>
                 </select>
             </div>
 
             <!--Time Dropdown Menu-->
             <div class="form-group col-md-2">
                 <select id="inputTime" class="form-control">
-                    <option selected>Time...</option>
+                    <option selected>Select Start Time</option>
                     <option>8:30am</option>
                     <option>9:30am</option>
                     <option>10:30am</option>
@@ -127,5 +133,26 @@
             </div>
             
     </form>
+    <script>
+		$(document).ready(function() {
+		  $('#department').change(function() {
+			const department = $(this).val();
+			$.ajax({
+			  url: '/add-classes/subjects',
+			  data: { department },
+			  success: function(subjects) {
+				const $classNameSelect = $('#className');
+				$classNameSelect.empty();
+				subjects.forEach(function(subject) {
+				  $classNameSelect.append($('<option>', {
+					value: subject._id,
+					text: subject.classID + " - " + subject.className
+				  }));
+				});
+			  }
+			});
+		  });
+		});
+	</script>
     </body>
 </html>

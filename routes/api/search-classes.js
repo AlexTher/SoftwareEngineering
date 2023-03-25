@@ -38,7 +38,18 @@ router.get('/classes', async (req, res, next) => {
     } catch (err) {
       next(err);
     }
-  });
+});
+//GET route for getting subjects from department
+router.get('/subjects', async (req, res) => {
+    try {
+      const { department } = req.query;
+      const subjects = await Subject.find({ department });
+      res.json(subjects);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 
 module.exports = router;
