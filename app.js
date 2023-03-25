@@ -1,6 +1,9 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
+const path = require('path');
+const mime = require('mime');
+const fs = require('fs');
 
 //import bootstrap from 'bootstrap'
 //const bootstrap = require('bootstrap');
@@ -16,6 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname+'/views'));
 
+// app.get('/public/javascripts/subject-populator.js', (req, res) => {
+//     const filePath = path.join(__dirname, 'public', 'javascripts', 'subject-populator.js');
+//     const fileContents = fs.readFileSync(filePath, 'utf8');
+//     res.set('Content-Type', 'application/javascript');
+//     res.send(fileContents);
+// });
+
 // authentication
 app.use(session({
     secret: 'mysecret',
@@ -29,8 +39,9 @@ app.set('views', __dirname + '/views');
 app.set('layout', './layouts/layout');
 
 // Routers
-var loginRouter = require('./routes/login');
-var adminRouter = require('./routes/admin');
+const loginRouter = require('./routes/login');
+const adminRouter = require('./routes/admin');
+const subjectPopulatorRoute = require('./routes/scripts/subject-populator');
 
 // API Routers
 const studentAPIRouter = require('./routes/api/students');
@@ -42,6 +53,7 @@ const searchClassAPIRouter = require('./routes/api/search-classes');
 // Routes
 app.use('/', loginRouter);
 app.use('/admin', adminRouter);
+app.use('/public/javascripts/subject-populator.js', subjectPopulatorRoute);
 
 // API Routes
 app.use('/student', studentAPIRouter);
@@ -49,6 +61,7 @@ app.use('/register', registrationAPIRouter);
 app.use('/add-classes', addClassAPIRouter);
 app.use('/search-classes', searchClassAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
+
 
 // Connect to database
 mongoose.set('strictQuery', false);
