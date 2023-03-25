@@ -18,10 +18,10 @@ router.get('/create-class', restrictAccess(roles.ADMIN), async (req, res) => {
         // Fetch all schedules from the database
         const schedules = await Schedule.find();
         const departments = await Subject.distinct('department');
-        const subjects = await Subject.find({ department: req.query.department });
+        //const subjects = await Subject.find({ department: req.query.department });
 
         // Render the class creation form template and pass the schedules variable
-        res.render('admin/create-class', { schedules, departments, subjects });
+        res.render('admin/create-class', { schedules, departments });
     } catch (err) {
         console.error(err);
         res.status(500).send('Server error');
