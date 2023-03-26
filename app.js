@@ -41,6 +41,8 @@ app.set('layout', './layouts/layout');
 // Routers
 const loginRouter = require('./routes/login');
 const adminRouter = require('./routes/admin');
+const studentRouter = require('./routes/student');
+const teacherRouter = require('./routes/teacher');
 const subjectPopulatorRoute = require('./routes/scripts/subject-populator');
 
 // API Routers
@@ -52,6 +54,8 @@ const subjectAPIRouter = require('./routes/api/add-subjects');
 // Routes
 app.use('/', loginRouter);
 app.use('/admin', adminRouter);
+app.use('/student', studentRouter);
+app.use('/teacher', teacherRouter);
 app.use('/public/javascripts/subject-populator.js', subjectPopulatorRoute);
 
 // API Routes
@@ -61,6 +65,8 @@ app.use('/add-classes', classAPIRouter);
 app.use('/add-classes/subjects', classAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
 
+
+//Scheduler Code
 
 // Connect to database
 mongoose.set('strictQuery', false);
