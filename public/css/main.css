@@ -6,11 +6,10 @@
 body {
   flex-direction: column;
   display: flex;
-  align-items: center;
+  /*align-items: center;
   align-content: center;
-  justify-content: center;
+  justify-content: center;*/
   font-family: "DINPro", "Helvetica Neue", sans-serif;
-  padding: 3rem;
   margin: 0;
   background: #fafafa;
   box-sizing: border-box;
@@ -23,7 +22,8 @@ body {
 }
 
 .outer {
-  position:relative;
+
+  position: relative;
 }
 
 .calendar {
@@ -39,7 +39,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
     max-width: 1280px;
-  height: 500px;
+  height: 800px;
   border-radius: 8px;
 }
 
@@ -67,6 +67,7 @@ tbody {
   top: 100px;
 }
 table {
+  margin-top :50;
   background: #fff;
   width: 100%;
   height: 100%;
@@ -129,7 +130,7 @@ tbody tr td {
   position: relative;
   vertical-align: top;
   height: 40px;
-  padding: 0.25rem 0.25rem 0 0.25rem;
+  padding: .1rem 0.25rem 0 0.25rem;
   width: auto;
 
 }
@@ -147,7 +148,7 @@ tbody tr td {
     border: 0;
     outline: 0;
     width: 100px;
-    heigth: 100px;
+    height: 100px;
     background: white;
     color: transparent;
     display:block;
@@ -158,7 +159,7 @@ tbody tr td {
     border: 0;
     outline: 0;
     width: 100%;
-    heigth: 100%;
+    height: 100%;
     background: red;
     color: transparent;
     display: inline-block;
@@ -171,7 +172,7 @@ tbody tr td {
   text-align: left;
   font-size: 0.875rem;
   z-index: 2;
-  padding: 0.5rem;
+  
   overflow-x: hidden;
   transition: all 0.2s;
   cursor: pointer;
@@ -183,7 +184,9 @@ tbody tr td {
 }
 
 .event.double {
-  height: 200%;
+    
+  height: 100%;     /*lerp between 0 and 200% for the css script*/
+  margin-top: 0px; /*lerp between 0 and 37 for the css script */
 }
 
 /**
@@ -234,9 +237,7 @@ button.secondary:focus {
   outline: 0;
 }
 
-tr td:nth-child(2), tr td:nth-child(3), .past {
-  background: #fafafa;
-}
+
 
 .today {
   color: red;

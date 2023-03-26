@@ -62,6 +62,8 @@ app.use('/add-classes/subjects', classAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
 
 
+//Scheduler Code
+
 // Connect to database
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DB_CONNECTION_URL, { useNewUrlParser: true })
