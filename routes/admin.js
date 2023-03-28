@@ -42,8 +42,19 @@ router.get('/create-subject', restrictAccess(roles.ADMIN), async (req, res) => {
 router.get('/calendar', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/calendar',{text: 'Hey'});
 });
-router.get('/classes', restrictAccess(roles.ADMIN), (req, res) => {
-    res.render('admin/classes');
+router.get('/classes', restrictAccess(roles.ADMIN), async (req, res) => {
+    try {
+        // Fetch all schedules from the database
+        const schedules = await Schedule.find();
+        const departments = await Subject.distinct('department');
+        const subjects = await Subject.find({ department: req.query.department });
+
+        // Render the class creation form template and pass the schedules variable
+        res.render('admin/classes', { schedules, departments, subjects});
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
 });
 router.get('/users', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/users');

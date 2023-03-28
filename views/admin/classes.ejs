@@ -12,7 +12,7 @@
                 padding-left: 4%;
                 padding-right: 4%;
                 padding-top: 3%;
-                padding-bottom: 5%;
+                padding-bottom: 3%;
             }
         </style>
     </head>
@@ -23,19 +23,18 @@
 
             <!--Subject Dropdown Menu-->
             <div class="form-group col-md-8">
-                <select id="inputSubject" class="form-control">
-                    <option selected>Subject...</option>
-                    <option>Chemistry</option>
-                    <option>Computer Science</option>
-                    <option>Communication</option>
-                    <option>History</option>
+                <select class="form-control" id="department" name="department" required>
+                    <option selected>Department...</option>
+                    <% departments.forEach(function(department) { %>
+                        <option value="<%= department %>"><%= department %></option>
+                    <% }); %>
                 </select>
                 <!--Allow multiple selection?-->
             </div>
 
             <!--Course ID Text Box-->
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="inputID" placeholder="Course ID">
+                <input type="text" class="form-control" id="inputID" placeholder="Course ID...">
                 <!--Maybe have hover over note for fields to help student with format-->
             </div>
         </div>
@@ -46,10 +45,14 @@
             <div class="form-group col-md-3">
                 <select id="inputPathway" class="form-control">
                     <option selected>Pathway...</option>
-                    <option>GA</option>
-                    <option>FL</option>
                     <option>WC</option>
                     <option>OVC</option>
+                    <option>HP</option>
+                    <option>UD</option>
+                    <option>FL</option>
+                    <option>GA</option>
+                    <option>DL</option>
+                    <option>NS</option>
                 </select>
             </div>
 
@@ -57,6 +60,7 @@
             <div class="form-group col-md-2">
                 <select id="inputHour" class="form-control">
                     <option selected>Hours...</option>
+                    <option>0.00</option>
                     <option>1.00</option>
                     <option>2.00</option>
                     <option>3.00</option>
@@ -65,67 +69,67 @@
             </div>
 
             <!--Time Dropdown Menu-->
-            <div class="form-group col-md-2">
-                <select id="inputTime" class="form-control">
-                    <option selected>Time...</option>
-                    <option>8:30am</option>
-                    <option>9:30am</option>
-                    <option>10:30am</option>
-                    <option>11:30am</option>
+            <div class="form-group col-md-3">
+                    <select class="form-control" id="schedule" name="schedule" required>
+                        <option selected>Time...</option>
+                        <% schedules.forEach(function(schedule) { %>
+                            <option value="<%= schedule._id %>"><%= schedule.classTimes[0].day %> <%= schedule.classTimes[1].day %> <%= schedule.classTimes[0].startTime %> - <%= schedule.classTimes[0].endTime %></option>
+                        <% }); %>
                     <!--functionality where if you choose certain days, different time options-->
                 </select>
             </div>
-
-
-            <!--Weekday Selection Checkboxes-->
-			<div class="form-group col-md-5">
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					Mo
-				</label>
-				<label class="checkbox-inline"> 
-					<input type="checkbox" value="">
-					Tu
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					We
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					Th
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					Fr
-				</label>
-			</div> 
-        </div>
-            <!--Search Button-->
-			<!-- <div class="form-group col-md-12">
-				<button type="submit" class="btn btn-primary">Find</button>
-			</div> -->
-
-            <div class="form-row">
                
-
-                <!--Course Level-->
-                <div class="col-md-4">
-                    <select id="inputLevel" class="form-control">
-                        <option selected>Course Level...</option>
-                        <option>1000</option>
-                        <option>2000</option>
-                        <option>3000</option>
-                        <option>4000</option>
-                    </select>
-                </div>
-
-                <!--Professor-->
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" id="inputProfessor" placeholder="Professor Name">
-                </div>
+            <!--Course Level-->
+            <div class="form-group col-md-4">
+                <select class ="form-control" id="inputLevel">
+                    <option selected>Course Level...</option>
+                    <option>1000</option>
+                    <option>2000</option>
+                    <option>3000</option>
+                    <option>4000</option>
+                    <option>Capstone</option>
+                </select>
             </div>
-            
+        </div>
+
+        <div class="form-row">
+            <!--Professor-->
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputProf" placeholder="Professor Name...">
+            </div>
+            <!--Empty box-->
+            <div class="form-group col-md-3">
+            </div>
+            <!--Weekday Selection Checkboxes-->
+            <div class="form-group col-md-5">
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Mon
+                </label>
+                <label class="checkbox-inline"> 
+                    <input type="checkbox" value="">
+                    Tue
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Wed
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Thur
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Fri
+                </label>
+            </div> 
+        </div>
+        <div class="form-row">
+            <!--Search Button-->
+			<div class="form-group col-md-3">
+				<button type="submit" class="btn btn-primary">Find...</button>
+			</div>
+        </div>
     </form>
     </body>
 </html>
