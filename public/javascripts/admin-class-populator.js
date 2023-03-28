@@ -8,10 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 type: 'GET',
                 data: $('form').serialize(),
                 success: function(response) {
-                    $('#error-message').remove();
+                    $('#classEntry-container').empty();
                     $('#classEntry-container').append(response);
                 },
                 error: function(xhr, status, error) {
+                    $('#classEntry-container').empty();
                     $('#classEntry-container').append('<div id="error-message">Error: ' + error + '</div>');
                 }
             });
