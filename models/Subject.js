@@ -12,8 +12,6 @@ const subjectSchema = new mongoose.Schema({
                                         'MATH', 'MDRS', 'MFIN', 'MGMT', 'MKTG', 'MLL', 'MUSC', 'MUSE', 'MUSI', 'NEUR', 
                                         'PHED', 'PHIL', 'PHYS', 'PLSI', 'PSYC', 'RELI', 'RUSS', 'SCOM', 'SOCI', 'SPAN', 
                                         'SPMT', 'THTR', 'URBS', 'WAGS'] },
-    //schedule: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ClassSchedule' }]
-    // other fields as needed
     credits: { type: Number, enum: [0,1,2,3,4,5,6,7,8,9] },
     prereqs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Class'}],
     description: {type: String}

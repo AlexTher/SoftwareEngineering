@@ -12,7 +12,7 @@
                 padding-left: 4%;
                 padding-right: 4%;
                 padding-top: 3%;
-                padding-bottom: 3%;
+                padding-bottom: 4%;
             }
         </style>
     </head>
@@ -34,8 +34,7 @@
 
             <!--Course ID Text Box-->
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="inputID" placeholder="Course ID...">
-                <!--Maybe have hover over note for fields to help student with format-->
+                <input type="number" class="form-control" id="classID" name="classID" min="1000" max="9999" placeholder="Course ID...">
             </div>
         </div>
 
@@ -43,33 +42,21 @@
 
             <!--Pathway Dropdown Menu-->
             <div class="form-group col-md-3">
-                <select id="inputPathway" class="form-control">
-                    <option selected>Pathway...</option>
-                    <option>WC</option>
-                    <option>OVC</option>
-                    <option>HP</option>
-                    <option>UD</option>
-                    <option>FL</option>
-                    <option>GA</option>
-                    <option>DL</option>
-                    <option>NS</option>
+                <select id="pathway" name="pathway" class="form-control">
+                    <option selected value="">Select a pathway...</option>
+                    <% pathways.forEach(function(pathway) { %>
+                        <option value="<%= pathway %>"><%= pathway %></option>
+                    <% }); %>
                 </select>
             </div>
 
             <!--Credit Dropdown Menu-->
             <div class="form-group col-md-2">
-                <select id="inputHour" class="form-control">
-                    <option selected>Hours...</option>
-                    <option>0.00</option>
-                    <option>1.00</option>
-                    <option>2.00</option>
-                    <option>3.00</option>
-                    <option>4.00</option>
-                    <option>5.00</option>
-                    <option>6.00</option>
-                    <option>7.00</option>
-                    <option>8.00</option>
-                    <option>9.00</option>
+                <select id="credits" name="credits" class="form-control">
+                    <option selected value="">Credits...</option>
+                    <% credits.forEach(function(credit) { %>
+                        <option value="<%= credit %>"><%= credit %></option>
+                    <% }); %>
                 </select>
             </div>
 
@@ -86,26 +73,38 @@
                
             <!--Course Level-->
             <div class="form-group col-md-4">
-                <select class ="form-control" id="inputLevel">
-                    <option selected>Course Level...</option>
-                    <option>1000</option>
-                    <option>2000</option>
-                    <option>3000</option>
-                    <option>4000</option>
-                    <option>Capstone</option>
+                <select id="inputLevel" name="inputLevel" class="form-control">
+                    <option selected value="">Course Level...</option>
+                        <option value="1">1000</option>
+                        <option value="2">2000</option>
+                        <option value="3">3000</option>
+                        <option value="4">4000</option>
+                        <option value="5">Capstone</option>
                 </select>
             </div>
         </div>
 
         <div class="form-row">
+            <!--Class Name-->
+            <div class="form-group col-md-8">
+                <select class="form-control" id="className" name="subject">
+                    <option selected value="">Select a Class</option>
+                    <% subjects.forEach(function(subject) { %>
+                        <option value="<%= subject.className %>"><%= subject.department %><%= subject.classID %> - <%= subject.className %></option>
+                    <% }); %>
+                </select>
+            </div>
+
             <!--Professor-->
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" id="inputProf" placeholder="Professor Name...">
             </div>
-            <!--Empty box-->
-            <div class="form-group col-md-3">
-            </div>
+        </div>
+            <div class="form-row">
             <!--Weekday Selection Checkboxes-->
+            <div class="form-group col-md-7">
+            </div>
+
             <div class="form-group col-md-5">
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
@@ -128,13 +127,16 @@
                     Fri
                 </label>
             </div> 
-        </div>
-        <div class="form-row">
+
+            <div class="form-group col-md-2">
+            </div>
+
             <!--Search Button-->
-			<div class="form-group col-md-3">
+			<div class="col-md-12">
 				<button type="submit" class="btn btn-primary">Find...</button>
 			</div>
         </div>
     </form>
+    <div class="container w-75" id="classEntry-container"></div>
     </body>
 </html>
