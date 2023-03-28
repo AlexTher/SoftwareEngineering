@@ -45,11 +45,11 @@ router.get('/classes', async (req, res, next) => {
         // }
     
         const classes = await Class.find(filter)
-            // .populate('subject')
-            // .populate('teacher')
-            // .populate('students')
-            // .populate('room')
-            // .populate('schedule')
+            //.populate('subject')
+            //.populate('teacher')
+            //.populate('students')
+            //.populate('room')
+            //.populate('schedule')
             .lean()
             .exec();
 

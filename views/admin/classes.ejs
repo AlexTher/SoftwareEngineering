@@ -15,16 +15,19 @@
                 padding-bottom: 4%;
             }
         </style>
+        <script type="text/javascript" src="/public/javascripts/subject-populator.js"></script>
+        <script type="text/javascript" src="/public/javascripts/admin-class-populator.js"></script>
     </head>
     <body>
     <form>
+        <form role="form" class="form-horizontal" action="/search-classes/classes" method="GET">
 
         <div class="form-row">
 
             <!--Subject Dropdown Menu-->
             <div class="form-group col-md-8">
-                <select class="form-control" id="department" name="department" required>
-                    <option selected>Department...</option>
+                <select id="department" class="form-control" name="department">
+                    <option selected value="">Select a Department</option>
                     <% departments.forEach(function(department) { %>
                         <option value="<%= department %>"><%= department %></option>
                     <% }); %>
@@ -43,7 +46,7 @@
             <!--Pathway Dropdown Menu-->
             <div class="form-group col-md-3">
                 <select id="pathway" name="pathway" class="form-control">
-                    <option selected value="">Select a pathway...</option>
+                    <option selected value="">Select a pathway</option>
                     <% pathways.forEach(function(pathway) { %>
                         <option value="<%= pathway %>"><%= pathway %></option>
                     <% }); %>
@@ -53,7 +56,7 @@
             <!--Credit Dropdown Menu-->
             <div class="form-group col-md-2">
                 <select id="credits" name="credits" class="form-control">
-                    <option selected value="">Credits...</option>
+                    <option selected value="">Select Credit Amount</option>
                     <% credits.forEach(function(credit) { %>
                         <option value="<%= credit %>"><%= credit %></option>
                     <% }); %>
