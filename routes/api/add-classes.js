@@ -2,6 +2,7 @@ const express = require('express');
 var router = express.Router();
 const Class = require('../../models/Class');
 const Subject = require('../../models/Subject');
+const Timestamp = require('../../models/Timestamp');
 const mongoose = require('mongoose');
 
 //GET route for getting subjects from department
@@ -21,7 +22,7 @@ router.post('/', async (req, res) => {
         const { subject, schedule } = req.body;
 
         // Create a new Class object
-        const newClass = await addClass(subject, schedule)
+        const newClass = await addClass(subject, schedule, req.session.user)
 
         // Return a success response
         res.redirect('/admin/dashboard')
@@ -31,18 +32,24 @@ router.post('/', async (req, res) => {
     }
 });
 // Define the addClass function to add a new class
-async function addClass(subject, schedule) {
+async function addClass(subject, schedule, user) {
     try {
         // Create a new Class object
         const newClass = new Class({
             subject, schedule
         });
+        // Create a new Timestamp
+        const newTimestamp = new Timestamp({
+            user: user._id,
+            class: newClass._id,
+            description: 'class_created'
+        });
+        // Save the new Class document and the new Timestamp document to the database
+        const savedClass = await newClass.save();
+        const savedTimestamp = await newTimestamp.save();
 
-        // Save the new class to the database
-        await newClass.save();
-
-        // Return the new class object
-        return newClass;
+        // Return the ID of the newly created Class document
+        return savedClass;
     } catch (err) {
         console.error(err);
         throw new Error('Failed to add class');
