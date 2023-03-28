@@ -45,11 +45,12 @@ router.get('/classes', restrictAccess(roles.ADMIN), async (req, res) => {
     try {
         // Get stuff from database
         const schedules = await Schedule.find();
-        const classes = await Subject.distinct('className');
+        const subjects = await Subject.find();
         const departments = await Subject.distinct('department');
         const pathways = await Subject.distinct('pathways');
         const credits = await Subject.distinct('credits')
-        res.render('admin/classes', { schedules, classes, departments, pathways, credits});
+        res.render('admin/classes', { schedules, subjects, departments, pathways, credits});
+        
     } catch (err) {
         console.error(err);
         res.status(500).send('Server error');

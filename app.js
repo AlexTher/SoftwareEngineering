@@ -41,7 +41,7 @@ app.set('layout', './layouts/layout');
 // Routers
 const loginRouter = require('./routes/login');
 const adminRouter = require('./routes/admin');
-const subjectPopulatorRoute = require('./routes/scripts/subject-populator');
+const scriptsRoute = require('./routes/scripts');
 
 // API Routers
 const studentAPIRouter = require('./routes/api/students');
@@ -53,7 +53,7 @@ const searchClassAPIRouter = require('./routes/api/search-classes');
 // Routes
 app.use('/', loginRouter);
 app.use('/admin', adminRouter);
-app.use('/public/javascripts/subject-populator.js', subjectPopulatorRoute);
+app.use('/public/javascripts', scriptsRoute);
 
 // API Routes
 app.use('/student', studentAPIRouter);
@@ -61,6 +61,8 @@ app.use('/register', registrationAPIRouter);
 app.use('/add-classes', addClassAPIRouter);
 app.use('/search-classes', searchClassAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
+
+// Script Routes
 
 
 // Connect to database

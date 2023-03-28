@@ -17,16 +17,17 @@
         </style>
 
         <script type="text/javascript" src="/public/javascripts/subject-populator.js"></script>
+        <script type="text/javascript" src="/public/javascripts/admin-class-populator.js"></script>
     </head>
     <body>
-    <form>
+        <form role="form" class="form-horizontal" action="/search-classes/classes" method="GET">
 
         <div class="form-row">
 
             <!--Subject Dropdown Menu-->
             <div class="form-group col-md-8">
-                <select id="department" class="form-control" name="department" required>
-                    <option selected disabled>Select a Department</option>
+                <select id="department" class="form-control" name="department">
+                    <option selected value="">Select a Department</option>
                     <% departments.forEach(function(department) { %>
                         <option value="<%= department %>"><%= department %></option>
                     <% }); %>
@@ -44,10 +45,10 @@
         <div class="form-row">
 
             <div class="form-group col-md-8">
-                <select class="form-control" id="className" name="subject" required>
-                    <option selected disabled>Select a Class</option>
-                    <% classes.forEach(function(classItem) { %>
-                        <option value="<%= classItem %>"><%= classItem %></option>
+                <select class="form-control" id="className" name="subject">
+                    <option selected value="">Select a Class</option>
+                    <% subjects.forEach(function(subject) { %>
+                        <option value="<%= subject.className %>"><%= subject.department %><%= subject.classID %> - <%= subject.className %></option>
                     <% }); %>
                 </select>
             </div>
@@ -55,7 +56,7 @@
             <!--Pathway Dropdown Menu-->
             <div class="form-group col-md-3">
                 <select id="pathway" name="pathway" class="form-control">
-                    <option selected disabled>Select a pathway</option>
+                    <option selected value="">Select a pathway</option>
                     <% pathways.forEach(function(pathway) { %>
                         <option value="<%= pathway %>"><%= pathway %></option>
                     <% }); %>
@@ -65,7 +66,7 @@
             <!--Credit Dropdown Menu-->
             <div class="form-group col-md-2">
                 <select id="credits" name="credits" class="form-control">
-                    <option selected disabled>Select Credit Amount</option>
+                    <option selected value="">Select Credit Amount</option>
                     <% credits.forEach(function(credit) { %>
                         <option value="<%= credit %>"><%= credit %></option>
                     <% }); %>
@@ -119,12 +120,12 @@
 
                 <!--Course Level-->
                 <div class="col-md-4">
-                    <select id="inputLevel" class="form-control">
-                        <option selected>Course Level...</option>
-                        <option>1000</option>
-                        <option>2000</option>
-                        <option>3000</option>
-                        <option>4000</option>
+                    <select id="inputLevel" name="inputLevel" class="form-control">
+                        <option selected value="">Course Level...</option>
+                        <option value="1">1000</option>
+                        <option value="2">2000</option>
+                        <option value="3">3000</option>
+                        <option value="4">4000</option>
                     </select>
                 </div>
 
@@ -133,6 +134,12 @@
                     <input type="text" class="form-control" id="inputProfessor" placeholder="Professor Name">
                 </div>
             </div>
-    </form>
+
+            <!--Search Button-->
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-primary">Find</button>
+            </div>
+        </form>
+        <div class="container-fluid" id="classEntry-container"></div>
     </body>
 </html>
