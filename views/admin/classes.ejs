@@ -12,7 +12,7 @@
                 padding-left: 4%;
                 padding-right: 4%;
                 padding-top: 3%;
-                padding-bottom: 5%;
+                padding-bottom: 3%;
             }
         </style>
 
@@ -84,32 +84,53 @@
                     <!--functionality where if you choose certain days, different time options-->
                 </select>
             </div>
-
-
-            <!--Weekday Selection Checkboxes-->
-			<div class="form-group col-md-5">
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					Mo
-				</label>
-				<label class="checkbox-inline"> 
-					<input type="checkbox" value="">
-					Tu
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					We
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					Th
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">
-					Fr
-				</label>
-			</div> 
+               
+            <!--Course Level-->
+            <div class="form-group col-md-4">
+                <select class ="form-control" id="inputLevel">
+                    <option selected>Course Level...</option>
+                    <option>1000</option>
+                    <option>2000</option>
+                    <option>3000</option>
+                    <option>4000</option>
+                    <option>Capstone</option>
+                </select>
+            </div>
         </div>
+
+        <div class="form-row">
+            <!--Professor-->
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputProf" placeholder="Professor Name...">
+            </div>
+            <!--Empty box-->
+            <div class="form-group col-md-3">
+            </div>
+            <!--Weekday Selection Checkboxes-->
+            <div class="form-group col-md-5">
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Mon
+                </label>
+                <label class="checkbox-inline"> 
+                    <input type="checkbox" value="">
+                    Tue
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Wed
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Thur
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">
+                    Fri
+                </label>
+            </div> 
+        </div>
+        <div class="form-row">
             <!--Search Button-->
 			<!-- <div class="form-group col-md-12">
 				<button type="submit" class="btn btn-primary">Find</button>
