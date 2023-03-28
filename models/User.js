@@ -12,12 +12,4 @@ const UserSchema = new mongoose.Schema({
     }],
 })
 
-// async function addUser(name, ID, email, password, role) {
-//     const user = new User({name, ID, email, password, role });
-//     const savedUser = await user.save();
-//     return savedUser;
-// }
-
 module.exports = mongoose.model('User', UserSchema);
-//module.exports = { User, addUser };
-//module.exports = { User };

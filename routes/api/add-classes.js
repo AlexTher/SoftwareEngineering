@@ -8,17 +8,22 @@ const mongoose = require('mongoose');
 //GET route for getting subjects from department
 router.get('/subjects', async (req, res) => {
     try {
-      const { department } = req.query;
-      const subjects = await Subject.find({ department });
-      res.json(subjects);
+        // Extracts the 'department' value from the query string
+        const { department } = req.query;
+        // Finds all subjects from the database that match the 'department' value
+        const subjects = await Subject.find({ department });
+        // Sends the subjects back as a JSON response to the client
+        res.json(subjects);
     } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Internal server error' });
+        // If an error occurs, logs the error to the console and sends an error response back to the client
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 // Define the POST / route to add a new class
 router.post('/', async (req, res) => {
     try {
+        // Extracts the 'subject' and 'schedule' values from the query string
         const { subject, schedule } = req.body;
 
         // Create a new Class object
@@ -27,6 +32,7 @@ router.post('/', async (req, res) => {
         // Return a success response
         res.redirect('/admin/dashboard')
     } catch (err) {
+        // If an error occurs, logs the error to the console and sends an error response back to the client
         console.error(err);
         res.status(500).send('Server error');
     }
@@ -51,6 +57,7 @@ async function addClass(subject, schedule, user) {
         // Return the ID of the newly created Class document
         return savedClass;
     } catch (err) {
+        // If an error occurs, logs the error to the console and sends an error response back to the client
         console.error(err);
         throw new Error('Failed to add class');
     }
