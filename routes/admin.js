@@ -52,7 +52,7 @@ router.get('/classes', restrictAccess(roles.ADMIN), async (req, res) => {
         const departments = await Subject.distinct('department');
         const pathways = await Subject.distinct('pathways');
         const credits = await Subject.distinct('credits')
-        res.render('admin/classes', { schedules, subjects, departments, pathways, credits});
+        res.render('classes', { schedules, subjects, departments, pathways, credits});
         
     } catch (err) {
         console.error(err);

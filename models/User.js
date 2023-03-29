@@ -10,6 +10,10 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Class', // reference to the Class model
     }],
+    wishlist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Class', // reference to the Class model
+    }],
 })
 
 module.exports = mongoose.model('User', UserSchema);
