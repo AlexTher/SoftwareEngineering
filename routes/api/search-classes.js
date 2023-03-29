@@ -63,8 +63,8 @@ router.get('/classes', async (req, res, next) => {
         console.log("====Output-End====");
         //end-debug
 
-        res.render('partials/adminClassEntry', {classes:classes}, function(err,html) {
-            res.send(html);
+        res.render('partials/adminClassEntry', {classes: classes, layout: false}, function(err,html) {
+            res.send('<div id="classEntry-wrapper">' + html + '</div>');
         });
         
     } catch (err) {
