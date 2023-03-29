@@ -40,27 +40,29 @@ const loginRouter = require('./routes/login');
 const adminRouter = require('./routes/admin');
 const studentRouter = require('./routes/student');
 const teacherRouter = require('./routes/teacher');
-const subjectPopulatorRoute = require('./routes/scripts/subject-populator');
+const scriptsRoute = require('./routes/scripts');
 
 // Import API Routers
 const studentAPIRouter = require('./routes/api/students');
 const registrationAPIRouter = require('./routes/api/register');
-const classAPIRouter = require('./routes/api/add-classes');
+const addClassAPIRouter = require('./routes/api/add-classes');
 const subjectAPIRouter = require('./routes/api/add-subjects');
+const searchClassAPIRouter = require('./routes/api/search-classes');
 
 // Use Routes
 app.use('/', loginRouter);
 app.use('/admin', adminRouter);
 app.use('/student', studentRouter);
 app.use('/teacher', teacherRouter);
-app.use('/public/javascripts/subject-populator.js', subjectPopulatorRoute);
+app.use('/public/javascripts', scriptsRoute);
 
 // Use API Routes
 app.use('/student', studentAPIRouter);
 app.use('/register', registrationAPIRouter);
-app.use('/add-classes', classAPIRouter);
-app.use('/add-classes/subjects', classAPIRouter);
+app.use('/add-classes', addClassAPIRouter);
+app.use('/search-classes', searchClassAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
+
 
 // Connect to database
 mongoose.set('strictQuery', false);

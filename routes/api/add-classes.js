@@ -20,6 +20,15 @@ router.get('/subjects', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+router.get('/all-subjects', async (req, res) => {
+    try {
+      const subjects = await Subject.find();
+      res.json(subjects);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+});
 // Define the POST / route to add a new class
 router.post('/', async (req, res) => {
     try {
