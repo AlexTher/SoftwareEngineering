@@ -6,6 +6,25 @@ router.get('/dashboard', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/dashboard', { user: req.session.user });
 })
 
-//other routes go here
+//These are the routes for the admin pages
 
+router.get('/calendar', restrictAccess(roles.TEACHER), (req, res) => {
+    res.render('teacher/calendar',{text: 'Hey'});
+});
+
+router.get('/classes', restrictAccess(roles.TEACHER), (req, res) => {
+    res.render('teacher/classes');
+});
+
+router.get('/registration', restrictAccess(roles.TEACHER), (req, res) => {
+    res.render('teacher/registration');
+});
+
+router.get('/search', restrictAccess(roles.TEACHER), (req, res) => {
+    res.render('teacher/search');
+});
+
+router.get('/students', restrictAccess(roles.TEACHER), (req, res) => {
+    res.render('teacher/students');
+});
 module.exports = router;
