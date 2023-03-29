@@ -1,4 +1,4 @@
-<!-- main layout - look into ejs layout if you want to fill this out -->
+<!-- Main Admin Layout-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,19 +33,17 @@
 
 
     <div class="wrapper">
-    
-        <div class="bg-image" 
-            style="background-image: url('/*https://pbs.twimg.com/media/Dsolg60U4AAjLji.jpg*/');
-            height: 100vh;
-            background-size: cover;
-            ">    
-            <main>
-                <%- body %>
-            </main>
+            
+        <!--Body-->
+        <main>
+            <%- body %>
+        </main>
 
-            <%- include('../partials/footer.ejs')%>
-        </div>
-
+        <!--Footer-->
+        <%- include('../partials/footer.ejs')%>
     </div>
+
+    <!--Help Button-->
+    <%- include('../partials/help-button.ejs')%>
 </body>
 </html>
