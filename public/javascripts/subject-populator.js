@@ -1,4 +1,6 @@
+// Waits for page to fully load 
 document.addEventListener("DOMContentLoaded", function() {
+    // Wait for the document to be ready
     $(document).ready(function() {
         $('#department').change(function() {
         const department = $(this).val();

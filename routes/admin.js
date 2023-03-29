@@ -8,11 +8,11 @@ router.get('/dashboard', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/dashboard', { user: req.session.user });
 })
 
-
 //These are the routes for the admin pages
 router.get('/create-user', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/create-user');
 });
+
 router.get('/create-class', restrictAccess(roles.ADMIN), async (req, res) => {
     try {
         // Fetch all schedules from the database
@@ -26,6 +26,7 @@ router.get('/create-class', restrictAccess(roles.ADMIN), async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
 router.get('/create-subject', restrictAccess(roles.ADMIN), async (req, res) => {
     try {
         // Fetch all schedules from the database
@@ -38,6 +39,7 @@ router.get('/create-subject', restrictAccess(roles.ADMIN), async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
 router.get('/calendar', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/calendar',{text: 'Hey'});
 });
@@ -56,6 +58,7 @@ router.get('/classes', restrictAccess(roles.ADMIN), async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
 router.get('/users', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/users');
 });
