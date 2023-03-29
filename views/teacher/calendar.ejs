@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/header.ejs')%>
+    
+        <link rel="stylesheet" type="text/css" href= "/css/main.css"/>
+       
+    </head>
+    <body>
+    <td></td><div class="calendar">
+        
+        <header>
+            <div class="calendar__title" style="display: flex; justify-content: center; align-items: center">
+            </div> 
+            <div style="align-self: flex-start; flex: 0 0 11"></div>
+        </header>
+    
+        <div id="container"></div>
+        
+       <!-- <div class="outer"> -->
+          
+          <p>Welcome to JavaScript</p>  
+          <p>Welcome to JavaScript</p>  
+          
+          <form>  
+          <input type="button" value="click" onclick="tbl()"/>  
+          </form>  
+          
+        </body>  
+        
+        <!---->
+        <table>
+        <thead>
+          <tr>
+            <th class="headcol"></th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+          </tr>
+        </thead>
+        </table>
+      
+      <div class="wrap"> 
+        <table class="offset">
+           
+    
+        <tbody id = "tbody">
+          <script type="text/javascript" src="/JS/GenerateSchedule.js"></script> 
+          
+        </tbody>
+      </table>
+      
+      </div>
+      </div>
+      
+      </div>
+    </body>
+</html>
