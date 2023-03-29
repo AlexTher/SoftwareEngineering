@@ -15,11 +15,11 @@
                 padding-bottom: 3%;
             }
         </style>
-
         <script type="text/javascript" src="/public/javascripts/subject-populator.js"></script>
         <script type="text/javascript" src="/public/javascripts/admin-class-populator.js"></script>
     </head>
     <body>
+        <form>
         <form role="form" class="form-horizontal" action="/search-classes/classes" method="GET">
 
         <div class="form-row">
@@ -27,7 +27,7 @@
             <!--Subject Dropdown Menu-->
             <div class="form-group col-md-8">
                 <select id="department" class="form-control" name="department">
-                    <option selected value="">Select a Department</option>
+                    <option selected value="">Select a Department...</option>
                     <% departments.forEach(function(department) { %>
                         <option value="<%= department %>"><%= department %></option>
                     <% }); %>
@@ -43,20 +43,10 @@
         </div>
 
         <div class="form-row">
-
-            <div class="form-group col-md-8">
-                <select class="form-control" id="className" name="subject">
-                    <option selected value="">Select a Class</option>
-                    <% subjects.forEach(function(subject) { %>
-                        <option value="<%= subject.className %>"><%= subject.department %><%= subject.classID %> - <%= subject.className %></option>
-                    <% }); %>
-                </select>
-            </div>
-
             <!--Pathway Dropdown Menu-->
             <div class="form-group col-md-3">
                 <select id="pathway" name="pathway" class="form-control">
-                    <option selected value="">Select a pathway</option>
+                    <option selected value="">Pathways...</option>
                     <% pathways.forEach(function(pathway) { %>
                         <option value="<%= pathway %>"><%= pathway %></option>
                     <% }); %>
@@ -66,7 +56,7 @@
             <!--Credit Dropdown Menu-->
             <div class="form-group col-md-2">
                 <select id="credits" name="credits" class="form-control">
-                    <option selected value="">Select Credit Amount</option>
+                    <option selected value="">Credits...</option>
                     <% credits.forEach(function(credit) { %>
                         <option value="<%= credit %>"><%= credit %></option>
                     <% }); %>
@@ -74,86 +64,76 @@
             </div>
 
             <!--Time Dropdown Menu-->
-            <div class="form-group col-md-2">
-                <select id="inputTime" class="form-control">
-                    <option selected>Select Start Time</option>
-                    <option>8:30am</option>
-                    <option>9:30am</option>
-                    <option>10:30am</option>
-                    <option>11:30am</option>
+            <div class="form-group col-md-3">
+                    <select class="form-control" id="schedule" name="schedule" required>
+                        <option selected>Time...</option>
+                        <% schedules.forEach(function(schedule) { %>
+                            <option value="<%= schedule._id %>"><%= schedule.classTimes[0].day %> <%= schedule.classTimes[1].day %> <%= schedule.classTimes[0].startTime %> - <%= schedule.classTimes[0].endTime %></option>
+                        <% }); %>
                     <!--functionality where if you choose certain days, different time options-->
                 </select>
             </div>
                
             <!--Course Level-->
             <div class="form-group col-md-4">
-                <select class ="form-control" id="inputLevel">
-                    <option selected>Course Level...</option>
-                    <option>1000</option>
-                    <option>2000</option>
-                    <option>3000</option>
-                    <option>4000</option>
-                    <option>Capstone</option>
+                <select id="inputLevel" name="inputLevel" class="form-control">
+                    <option selected value="">Course Level...</option>
+                        <option value="1">1000</option>
+                        <option value="2">2000</option>
+                        <option value="3">3000</option>
+                        <option value="4">4000</option>
+                        <option value="5">5000</option>
+                        <option value="6">Capstone</option>
                 </select>
             </div>
         </div>
 
         <div class="form-row">
+            <!--Class name-->
+            <div class="form-group col-md-8">
+                <select class="form-control" id="className" name="subject">
+                    <option selected value="">Select a Class...</option>
+                    <% subjects.forEach(function(subject) { %>
+                        <option value="<%= subject.className %>"><%= subject.department %><%= subject.classID %> - <%= subject.className %></option>
+                    <% }); %>
+                </select>
+            </div>
+
             <!--Professor-->
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" id="inputProf" placeholder="Professor Name...">
             </div>
-            <!--Empty box-->
-            <div class="form-group col-md-3">
             </div>
+
+            <div class="form-row">
             <!--Weekday Selection Checkboxes-->
+            <div class="form-group col-md-7">
+            </div>
+
             <div class="form-group col-md-5">
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
-                    Mon
+                    M
                 </label>
                 <label class="checkbox-inline"> 
                     <input type="checkbox" value="">
-                    Tue
+                    T
                 </label>
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
-                    Wed
+                    W
                 </label>
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
-                    Thur
+                    Th
                 </label>
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
-                    Fri
+                    F
                 </label>
-            </div> 
-        </div>
-        <div class="form-row">
-            <!--Search Button-->
-			<!-- <div class="form-group col-md-12">
-				<button type="submit" class="btn btn-primary">Find</button>
-			</div> -->
-
-            <div class="form-row">
-               
-
-                <!--Course Level-->
-                <div class="col-md-4">
-                    <select id="inputLevel" name="inputLevel" class="form-control">
-                        <option selected value="">Course Level...</option>
-                        <option value="1">1000</option>
-                        <option value="2">2000</option>
-                        <option value="3">3000</option>
-                        <option value="4">4000</option>
-                    </select>
-                </div>
-
-                <!--Professor-->
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" id="inputProfessor" placeholder="Professor Name">
-                </div>
+            </div>
+            
+            <div class="form-group col-md-2">
             </div>
 
             <!--Search Button-->
