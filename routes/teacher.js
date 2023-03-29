@@ -16,10 +16,6 @@ router.get('/classes', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/classes');
 });
 
-router.get('/users', restrictAccess(roles.TEACHER), (req, res) => {
-    res.render('teacher/users');
-});
-
 router.get('/registration', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/registration');
 });
@@ -28,4 +24,7 @@ router.get('/search', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/search');
 });
 
+router.get('/students', restrictAccess(roles.TEACHER), (req, res) => {
+    res.render('teacher/students');
+});
 module.exports = router;
