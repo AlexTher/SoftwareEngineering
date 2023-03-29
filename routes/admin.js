@@ -43,6 +43,7 @@ router.get('/create-subject', restrictAccess(roles.ADMIN), async (req, res) => {
 router.get('/calendar', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/calendar',{text: 'Hey'});
 });
+
 router.get('/classes', restrictAccess(roles.ADMIN), async (req, res) => {
     try {
         // Get stuff from database
