@@ -63,7 +63,9 @@ router.get('/classes', async (req, res, next) => {
         console.log("====Output-End====");
         //end-debug
 
-        res.render('partials/adminClassEntry', {classes: classes, layout: false}, function(err,html) {
+        var classEntryType = 'partials/classEntries/' + req.session.user.role + 'ClassEntry'
+
+        res.render(classEntryType, {classes: classes, layout: false}, function(err,html) {
             res.send('<div id="classEntry-wrapper">' + html + '</div>');
         });
         
