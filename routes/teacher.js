@@ -30,7 +30,7 @@ router.get('/search', restrictAccess(roles.TEACHER), async (req, res) => {
         const departments = await Subject.distinct('department');
         const pathways = await Subject.distinct('pathways');
         const credits = await Subject.distinct('credits')
-        res.render('classes', { schedules, subjects, departments, pathways, credits});
+        res.render('classes', { schedules, subjects, departments, pathways, credits, userRole: roles.TEACHER});
         
     } catch (err) {
         console.error(err);

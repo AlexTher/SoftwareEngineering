@@ -2,7 +2,13 @@
 <html>
     <head>
         <!--Header-->
-	    <%- include('partials/header-admin.ejs')%>
+	    <% if (userRole === 'student') { %>
+            <%- include('partials/headers/header-student.ejs') %>
+        <% } else if (userRole === 'admin') { %>
+            <%- include('partials/headers/header-admin.ejs') %>
+        <% } else if (userRole === 'teacher') { %>
+            <%- include('partials/headers/header-teacher.ejs') %>
+        <% } %>
 
         <link rel="stylesheet" href="/css/style.css">
 
