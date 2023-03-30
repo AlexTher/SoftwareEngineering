@@ -2,36 +2,65 @@ const express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 const User = require('../../models/User');
-const bcrypt = require('bcrypt');
+const Class = require('../../models/Class');
 
-//const salt = await bcrypt.genSalt(10);
-
-router.post('/', async (req, res) => {
+router.post('/waitlist', isLoggedIn, async (req, res) => {
     console.log(req.body);
     try {
-        // Get user input from registration form
-        const { name, ID, email, password, role } = req.body;
-        
-        //hash password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
+        const classId  = mongoose.Types.ObjectId(req.body.classId);
+        const userId = req.session.user._id
 
-        // Add user to database
-        const savedUser = await addUser(name, ID, email, hashedPassword, role);
-    
-        // Redirect to login page
-        res.redirect('/');
+        const savedUser = await addToWaitlist(userId, classId);
+        console.log(savedUser.message);
     } catch (err) {
         // Handle errors
         console.error(err);
         res.status(500).send('Internal Server Error');
     }
+
+
 });
 
-async function addUser(name, ID, email, password, role) {
-    const user = new User({name, ID, email, password, role });
-    const savedUser = await user.save();
-    return savedUser;
+function isLoggedIn(req, res, next) {
+    if (req.session.user) {
+      next(); // Continue to the next function
+    } else {
+      res.status(401).send('Unauthorized');
+    }
+  }
+
+// Add a class to the waitlist of a student
+async function addToWaitlist(studentId, classId) {
+  try {
+    console.log("\nLooking for user " + studentId + "\n");
+
+    const student = await User.findById(studentId);
+    const classObj = await Class.findById(classId);
+
+    console.log("\nAdding " + classObj + " to " + student.name + "'s Wishlist\n");
+
+
+    // Check if the class is already in the student's wishlist or class list
+    if ((student.wishlist && student.wishlist.includes(classId)) || student.class.includes(classId)) {
+      throw new Error('The class is already in the student\'s list.');
+    }
+
+    // Add the class ID to the student's wishlist array
+    student.wishlist.push(classObj);
+
+    // Save the updated student document to the User collection
+    await student.save();
+
+    return {
+      success: true,
+      message: `The class ${classObj} has been added to the waitlist of ${student.name}.`
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
 }
 
 module.exports = router;

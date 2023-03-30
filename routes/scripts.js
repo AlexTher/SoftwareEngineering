@@ -11,8 +11,15 @@ router.get('/subject-populator.js', (req, res) => {
     res.send(fileContents);
 });
 
-router.get('/admin-class-populator.js', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'admin-class-populator.js');
+router.get('/class-populator.js', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'class-populator.js');
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    res.set('Content-Type', 'application/javascript');
+    res.send(fileContents);
+});
+
+router.get('/waitlist-adder.js', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'waitlist-adder.js');
     const fileContents = fs.readFileSync(filePath, 'utf8');
     res.set('Content-Type', 'application/javascript');
     res.send(fileContents);
