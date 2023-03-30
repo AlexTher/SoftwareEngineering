@@ -18,11 +18,12 @@ router.get('/class-populator.js', (req, res) => {
     res.send(fileContents);
 });
 
-router.get('/waitlist-adder.js', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'waitlist-adder.js');
+router.get('/registration.js', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'registration.js');
     const fileContents = fs.readFileSync(filePath, 'utf8');
     res.set('Content-Type', 'application/javascript');
     res.send(fileContents);
 });
+
 
 module.exports = router;

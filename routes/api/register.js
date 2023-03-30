@@ -10,15 +10,28 @@ router.post('/waitlist', isLoggedIn, async (req, res) => {
         const classId  = mongoose.Types.ObjectId(req.body.classId);
         const userId = req.session.user._id
 
-        const savedUser = await addToWaitlist(userId, classId);
+        const savedUser = await addToWishlist(userId, classId);
         console.log(savedUser.message);
     } catch (err) {
         // Handle errors
         console.error(err);
         res.status(500).send('Internal Server Error');
     }
+});
 
+router.post('/add', isLoggedIn, async (req, res) => {
+    console.log(req.body);
+    try {
+        const classId  = mongoose.Types.ObjectId(req.body.classId);
+        const userId = req.session.user._id
 
+        const savedUser = await addToList(userId, classId);
+        console.log(savedUser.message);
+    } catch (err) {
+        // Handle errors
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 function isLoggedIn(req, res, next) {
@@ -29,13 +42,13 @@ function isLoggedIn(req, res, next) {
     }
   }
 
-// Add a class to the waitlist of a student
-async function addToWaitlist(studentId, classId) {
+// Add a class to the wishlist of a student
+async function addToWishlist(studentId, classId) {
   try {
     console.log("\nLooking for user " + studentId + "\n");
 
     const student = await User.findById(studentId);
-    const classObj = await Class.findById(classId);
+    const classObj = await Class.findById(classId).exec();
 
     console.log("\nAdding " + classObj + " to " + student.name + "'s Wishlist\n");
 
@@ -62,5 +75,42 @@ async function addToWaitlist(studentId, classId) {
     };
   }
 }
+
+async function addToList(studentId, classId) {
+    try {
+      console.log("\nLooking for user " + studentId + "\n");
+  
+      const student = await User.findById(studentId);
+      const classObj = await Class.findById(classId);
+  
+      console.log("\nAdding " + classObj + " to " + student.name + "'s Class List\n");
+
+      // Check if the class is already in the student's wishlist
+      if (student.wishlist && student.wishlist.includes(classId)) {
+        throw new Error('The class is somehow not in the student\'s wishlist.');
+      }
+  
+      // Check if the class is already in the student's class list
+      if (student.class && student.class.includes(classId)) {
+        throw new Error('The class is already in the student\'s list.');
+      }
+  
+      // Add the class ID to the student's class array
+      student.class.push(classObj);
+  
+      // Save the updated student document to the User collection
+      await student.save();
+  
+      return {
+        success: true,
+        message: `The class ${classObj} has been added to ${student.name}'s class list.`
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
 
 module.exports = router;

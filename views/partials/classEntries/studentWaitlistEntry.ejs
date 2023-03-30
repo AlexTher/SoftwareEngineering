@@ -1,19 +1,19 @@
-
-<% for (var i=0; i < classes.length; i++) { %>
+<div>
+<% for (var i=0; i < wishlist.length; i++) { %>
 <div class="panel panel-default">
     
     <!--Displays Class Name-->
     <div class="panel-body">
         <div class="col-xs-8">
             <h3>
-                <%= classes[i].subject.className %>
+                <%= wishlist[i].subject.className %>
             </h3>
         </div>
     
     <!--Displays Class Subject-->
         <div class="col-xs-4">
             <h3>
-                <%= classes[i].subject.classID %>-<%= classes[i].subject.department %>
+                <%= wishlist[i].subject.classID %>-<%= wishlist[i].subject.department %>
             </h3>
         </div>
     </div>
@@ -23,8 +23,8 @@
         <div class="col-md-4">
             <p>
                 Teacher: 
-                <% if(classes[i].teacher){ %>
-                    <%= classes[i].teacher.name %>
+                <% if(wishlist[i].teacher){ %>
+                    <%= wishlist[i].teacher.name %>
                   <% } else{ %>  
                     Undetermined
                  <% } %>
@@ -35,8 +35,8 @@
         <div class="col-md-4">
             <p>
                 Room:
-                <% if(classes[i].room){ %>
-                    <%= classes[i].room.building %>-<%= classes[i].room.number %>
+                <% if(wishlist[i].room){ %>
+                    <%= wishlist[i].room.building %>-<%= wishlist[i].room.number %>
                   <% } else{ %>  
                     Undetermined
                  <% } %>
@@ -47,8 +47,8 @@
         <div class="col-md-4">
             <p>
                 Capacity:
-                <% if(classes[i].room){ %>
-                    <%= classes[i].room.capacity %>
+                <% if(wishlist[i].room){ %>
+                    <%= wishlist[i].room.capacity %>
                 <% } else{ %>  
                     Undetermined
                 <% } %>
@@ -61,15 +61,15 @@
         <div class="col-md-12">
             <p>
                 Schedule: 
-                <% if(classes[i].schedule && classes[i].schedule.classTimes){ %>
-                    <% for (var j=0; j < classes[i].schedule.classTimes.length; j++) { %>
-                        <%= classes[i].schedule.classTimes[j].day %>
+                <% if(wishlist[i].schedule && wishlist[i].schedule.classTimes){ %>
+                    <% for (var j=0; j < wishlist[i].schedule.classTimes.length; j++) { %>
+                        <%= wishlist[i].schedule.classTimes[j].day %>
                         [
-                        <%= classes[i].schedule.classTimes[j].startTime %>
+                        <%= wishlist[i].schedule.classTimes[j].startTime %>
                         -
-                        <%= classes[i].schedule.classTimes[j].endTime %>
+                        <%= wishlist[i].schedule.classTimes[j].endTime %>
                         ]
-                        <% if(j < classes[i].schedule.classTimes.length - 1) { %>
+                        <% if(j < wishlist[i].schedule.classTimes.length - 1) { %>
                             &nbsp &nbsp
                         <% } %>
                     <% } %>
@@ -86,8 +86,8 @@
     <div class="panel-body">
         <div class="col-xs-6">
              
-            <button type="button" class="btn btn-lg btn-block" data-class-id="<%= classes[i]._id %>" onClick="addToWaitlist(this)">
-                Add Class to Waitlist
+            <button type="button" class="btn btn-lg btn-block" data-class-id="<%= wishlist[i]._id %>" onClick="addToList(this)">
+                Register for Class
             </button>
 
         </div>
@@ -102,3 +102,4 @@
     </div>
 </div>
 <% } %>
+</div>

@@ -3,6 +3,7 @@ const router = express.Router();
 const { roles, restrictAccess } = require('../functions/authentication/auth');
 const Schedule = require('../models/Schedule');
 const Subject = require('../models/Subject');
+const User = require('../models/User');
 
 //remember, the route to this http request is student/dashboard because in app.js we specify that all routes starting with 'student' go through this file
 router.get('/dashboard', restrictAccess(roles.STUDENT), (req, res) => {
@@ -36,6 +37,28 @@ router.get('/search', restrictAccess(roles.STUDENT), async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
+router.get('/wishlist', restrictAccess(roles.STUDENT), async (req, res) => {
+    try {
+        const userId = req.session.user._id
+        // Get stuff from database
+        const user = await User.findById(userId).populate('wishlist').lean().exec();
+        const wishlist = user.wishlist;
+        // user.wishlist.forEach((classId) => {
+        //     const classObj = classes.find((c) => c.id.equals(classId));
+        //     if (classObj) {
+        //         populatedWishlist.push(classObj);
+        //     }
+        // });
+        console.log(wishlist);
+        res.render('student/wishlist', { wishlist });
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
+});
+
 
 // Other routes go below this
 
