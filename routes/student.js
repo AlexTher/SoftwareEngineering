@@ -50,15 +50,15 @@ router.get('/wishlist', restrictAccess(roles.STUDENT), async (req, res) => {
         //         populatedWishlist.push(classObj);
         //     }
         // });
-        console.log(wishlist);
-        res.render('student/wishlist', { wishlist });
+
+        //console.log(wishlist);
+        res.render('student/wishlist', {wishlist});
         
     } catch (err) {
         console.error(err);
         res.status(500).send('Server error');
     }
 });
-
 
 // Other routes go below this
 
