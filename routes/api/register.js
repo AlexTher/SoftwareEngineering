@@ -86,7 +86,7 @@ async function addToList(studentId, classId) {
       console.log("\nAdding " + classObj + " to " + student.name + "'s Class List\n");
 
       // Check if the class is already in the student's wishlist
-      if (student.wishlist && student.wishlist.includes(classId)) {
+      if (student.wishlist && !student.wishlist.includes(classId)) {
         throw new Error('The class is somehow not in the student\'s wishlist.');
       }
   
@@ -97,9 +97,16 @@ async function addToList(studentId, classId) {
   
       // Add the class ID to the student's class array
       student.class.push(classObj);
+
+      //Remove the class from the wishlist
+      student.wishlist.pull(classObj);
+      
   
       // Save the updated student document to the User collection
       await student.save();
+
+      // window.location.reload();
+      // alert(`The class ${classObj} has been added to ${student.name}'s class list.`);
   
       return {
         success: true,
