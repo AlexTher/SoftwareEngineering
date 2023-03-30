@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 const User = require('../../models/User');
 const Class = require('../../models/Class');
+const Timestamp = require('../../models/Timestamp');
 
 router.post('/waitlist', isLoggedIn, async (req, res) => {
     console.log(req.body);
@@ -82,6 +83,12 @@ async function addToList(studentId, classId) {
   
       const student = await User.findById(studentId);
       const classObj = await Class.findById(classId);
+      const newTimestamp = new Timestamp({
+        user: student._id,
+        class: classObj._id,
+        student: student._id,
+        description: 'student_registered'
+    });
   
       console.log("\nAdding " + classObj + " to " + student.name + "'s Class List\n");
 
@@ -101,6 +108,8 @@ async function addToList(studentId, classId) {
       //Remove the class from the wishlist
       student.wishlist.pull(classObj);
       
+      // Save timestamp
+      await newTimestamp.save();
   
       // Save the updated student document to the User collection
       await student.save();
