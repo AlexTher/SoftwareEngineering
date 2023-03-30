@@ -18,7 +18,8 @@ function addToList(button) {
     // Call the addToWaitlist function with the class ID
     $.post('/register/add', {classId: classId}, function(response) {
       // Display a message based on the response
-      alert(response.message);
+      alert(response);
       location.reload();
     });
+    
 }

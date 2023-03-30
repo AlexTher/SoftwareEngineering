@@ -28,6 +28,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 
         const savedUser = await addToList(userId, classId);
         console.log(savedUser.message);
+        res.send(savedUser.message);
     } catch (err) {
         // Handle errors
         console.error(err);
