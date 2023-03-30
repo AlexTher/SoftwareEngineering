@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Header-->
+	    <%- include('../partials/headers/header-student.ejs')%>
+        
+        <link rel="stylesheet" href="/css/style.css">
+        <script type="text/javascript" src="/public/javascripts/student-class-unregistration.js"></script>
+    </head>
+
+    <body>
+        <p>Currently Registered Classes</p>
+
+        <div class="container  w-75">
+            <div class="panel panel-default" id="classEntry-container">
+                <% if (registeredClasses.length > 0) { %>
+                    <%- include('../partials/classEntries/studentRegisteredEntry', { classes: registeredClasses }) %>
+                  <% } else { %>
+                    <p><br>No Currently Registered Classes<br></p>
+                  <% } %>
+            </div>
+        </div>
+
+        <!--Add/Help Button-->
+	    <%- include('../partials/help-button.ejs')%>
+
+    </body>
+</html>

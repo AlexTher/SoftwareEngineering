@@ -36,6 +36,22 @@ router.post('/add', isLoggedIn, async (req, res) => {
     }
 });
 
+router.post('/remove', isLoggedIn, async (req, res) => {
+  console.log(req.body);
+  try {
+    const classId  = mongoose.Types.ObjectId(req.body.classId);
+    const userId = req.session.user._id
+
+    const removedClass = await removeFromList(userId, classId);
+    console.log(removedClass.message);
+    res.send(removedClass.message);
+  } catch (err) {
+    // Handle errors
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 function isLoggedIn(req, res, next) {
     if (req.session.user) {
       next(); // Continue to the next function
@@ -121,6 +137,52 @@ async function addToList(studentId, classId) {
       return {
         success: true,
         message: `The class ${classObj} has been added to ${student.name}'s class list.`
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  async function removeFromList(studentId, classId) {
+    try {
+      console.log("\nLooking for user " + studentId + "\n");
+  
+      const student = await User.findById(studentId);
+      const classObj = await Class.findById(classId);
+      const newTimestamp = new Timestamp({
+        user: student._id,
+        class: classObj._id,
+        student: student._id,
+        description: 'student_unregistered'
+      });
+  
+      console.log("\nRemoving " + classObj + " from " + student.name + "'s Class List\n");
+  
+      // Check if the class is already in the student's wishlist
+      if (student.wishlist && student.wishlist.includes(classId)) {
+        throw new Error('The class is in the student\'s wishlist.');
+      }
+  
+      // Check if the class is already in the student's class list
+      if (!student.class || !student.class.includes(classId)) {
+        throw new Error('The class is not in the student\'s list.');
+      }
+  
+      // Remove the class ID from the student's class array
+      student.class.pull(classObj);
+  
+      // Save timestamp
+      await newTimestamp.save();
+  
+      // Save the updated student document to the User collection
+      await student.save();
+  
+      return {
+        success: true,
+        message: `The class ${classObj} has been removed from ${student.name}'s class list.`
       };
     } catch (error) {
       return {

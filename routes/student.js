@@ -14,8 +14,17 @@ router.get('/calendar', restrictAccess(roles.STUDENT), (req, res) => {
     res.render('student/calendar', { user: req.session.user });
 });
 
-router.get('/classes', restrictAccess(roles.STUDENT), (req, res) => {
-    res.render('student/classes', { user: req.session.user });
+router.get('/classes', restrictAccess(roles.STUDENT), async (req, res) => {
+    try {
+        const userId = req.session.user._id
+        // Get stuff from database
+        const user = await User.findById(userId).populate('class').lean().exec();
+        const registeredClasses = user.class;
+        res.render('student/registered-classes', {registeredClasses});
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
 });
 
 router.get('/registration', restrictAccess(roles.STUDENT), (req, res) => {
