@@ -3,6 +3,7 @@ const router = express.Router();
 const { roles, restrictAccess } = require('../functions/authentication/auth');
 const Schedule = require('../models/Schedule');
 const Subject = require('../models/Subject');
+const User = require('../models/User');
 
 router.get('/dashboard', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/dashboard', { user: req.session.user });
@@ -38,7 +39,15 @@ router.get('/search', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/search');
 });
 
-router.get('/students', restrictAccess(roles.TEACHER), (req, res) => {
-    res.render('teacher/students');
+router.get('/students', restrictAccess(roles.TEACHER), async (req, res) => {
+    try {
+        // Get stuff from database
+        const user = await User.distinct('user')
+        res.render('teacher/students', {user});
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
 });
 module.exports = router;
