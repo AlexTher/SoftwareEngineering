@@ -9,10 +9,16 @@
     </head>
 
     <body>
-        <p>This is Teacher's Classes</p>
+        <h1>Classes</h1>
 
-        <!--Add/Help Button-->
-	    <%- include('../partials/help-button.ejs')%>
-
+        <div class="container">
+            <div class="row" id="waitlistEntry">
+              <% if (wishlist.length > 0) { %>
+                <%- include('../partials/classEntries/teacherClassEntry', { wishlist: wishlist }) %>
+              <% } else { %>
+                <p>You don't have any classes in your waitlist.</p>
+              <% } %>
+            </div>
+        </div>
     </body>
 </html>
