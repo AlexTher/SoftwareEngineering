@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!--Header-->
+        <%- include('../partials/headers/header-student')%>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <script type="text/javascript" src="/public/javascripts/student-class-registration.js"></script>
+
+    </head>
+
+    <body>
+        <h1>Wishlist</h1>
+
+        <div class="container">
+            <div class="row" id="waitlistEntry">
+              <% if (wishlist.length > 0) { %>
+                <%- include('../partials/classEntries/studentWaitlistEntry', { wishlist: wishlist }) %>
+              <% } else { %>
+                <p>You don't have any classes in your waitlist.</p>
+              <% } %>
+            </div>
+        </div>
+    </body>
+</html>

@@ -35,8 +35,20 @@ router.get('/registration', restrictAccess(roles.TEACHER), (req, res) => {
     res.render('teacher/registration');
 });
 
-router.get('/search', restrictAccess(roles.TEACHER), (req, res) => {
-    res.render('teacher/search');
+router.get('/search', restrictAccess(roles.TEACHER), async (req, res) => {
+    try {
+        // Get stuff from database
+        const schedules = await Schedule.find();
+        const subjects = await Subject.find();
+        const departments = await Subject.distinct('department');
+        const pathways = await Subject.distinct('pathways');
+        const credits = await Subject.distinct('credits')
+        res.render('classes', { schedules, subjects, departments, pathways, credits, userRole: roles.TEACHER});
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
 });
 
 router.get('/students', restrictAccess(roles.TEACHER), async (req, res) => {
