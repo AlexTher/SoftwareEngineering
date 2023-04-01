@@ -45,25 +45,12 @@ router.get('/classes', async (req, res, next) => {
         // }
     
         const classes = await Class.find(filter)
-            // .populate('subject')
-            // .populate('teacher')
-            // .populate('students')
-            // .populate('room')
-            // .populate('schedule')
             .lean()
             .exec();
 
-        //debug
-        console.log("====Output====");
-            console.log(classes[0].subject); // Check if subject is properly populated
-            console.log(classes[0].teacher); // Check if teacher is properly populated
-            console.log(classes[0].students); // Check if students is properly populated
-            console.log(classes[0].room); // Check if room is properly populated
-            console.log(classes[0].schedule); // Check if schedule is properly populated
-        console.log("====Output-End====");
-        //end-debug
+        var classEntryType = 'partials/classEntries/' + req.session.user.role + 'ClassEntry'
 
-        res.render('partials/adminClassEntry', {classes: classes, layout: false}, function(err,html) {
+        res.render(classEntryType, {classes: classes, layout: false}, function(err,html) {
             res.send('<div id="classEntry-wrapper">' + html + '</div>');
         });
         

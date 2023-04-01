@@ -44,10 +44,11 @@ const scriptsRoute = require('./routes/scripts');
 
 // Import API Routers
 const studentAPIRouter = require('./routes/api/students');
-const registrationAPIRouter = require('./routes/api/register');
+const registrationAPIRouter = require('./routes/api/create-user');
 const addClassAPIRouter = require('./routes/api/add-classes');
 const subjectAPIRouter = require('./routes/api/add-subjects');
 const searchClassAPIRouter = require('./routes/api/search-classes');
+const registerAPIRouter = require('./routes/api/register');
 
 // Use Routes
 app.use('/', loginRouter);
@@ -58,10 +59,11 @@ app.use('/public/javascripts', scriptsRoute);
 
 // Use API Routes
 app.use('/student', studentAPIRouter);
-app.use('/register', registrationAPIRouter);
+app.use('/create-user', registrationAPIRouter);
 app.use('/add-classes', addClassAPIRouter);
 app.use('/search-classes', searchClassAPIRouter);
 app.use('/add-subjects', subjectAPIRouter);
+app.use('/register', registerAPIRouter);
 
 
 // Connect to database

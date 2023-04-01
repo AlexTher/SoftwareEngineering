@@ -2,7 +2,13 @@
 <html>
     <head>
         <!--Header-->
-	    <%- include('../partials/header.ejs')%>
+	    <% if (userRole === 'student') { %>
+            <%- include('partials/headers/header-student.ejs') %>
+        <% } else if (userRole === 'admin') { %>
+            <%- include('partials/headers/header-admin.ejs') %>
+        <% } else if (userRole === 'teacher') { %>
+            <%- include('partials/headers/header-teacher.ejs') %>
+        <% } %>
 
         <link rel="stylesheet" href="/css/style.css">
 
@@ -16,7 +22,8 @@
             }
         </style>
         <script type="text/javascript" src="/public/javascripts/subject-populator.js"></script>
-        <script type="text/javascript" src="/public/javascripts/admin-class-populator.js"></script>
+        <script type="text/javascript" src="/public/javascripts/class-populator.js"></script>
+        <script type="text/javascript" src="/public/javascripts/student-class-registration.js"></script>
     </head>
     <body>
         <form>
@@ -141,7 +148,7 @@
                 <button type="submit" class="btn btn-primary">Find</button>
             </div>
         </div>
-        </form>
+    </form>
 
         <div class="container w-75" id="classEntry-container"></div>
 
