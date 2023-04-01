@@ -3,6 +3,7 @@ const router = express.Router();
 const { roles, restrictAccess } = require('../functions/authentication/auth');
 const Schedule = require('../models/Schedule');
 const Subject = require('../models/Subject');
+const Timestamp = require('../models/Timestamp');
 
 router.get('/dashboard', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/dashboard', { user: req.session.user });
@@ -63,5 +64,24 @@ router.get('/classes', restrictAccess(roles.ADMIN), async (req, res) => {
 router.get('/users', restrictAccess(roles.ADMIN), (req, res) => {
     res.render('admin/users');
 });
+
+router.get('/audit', restrictAccess(roles.ADMIN), async (req,res) => {
+
+    function auditValueAndDisplay(list) {
+        const formattedList = list.map((item) => {
+          return {
+            value: item,
+            display: item.split("_").map((word) => {
+              return word.charAt(0).toUpperCase() + word.slice(1);
+            }).join(" ")
+          }
+        });
+        return formattedList;
+    }
+
+    const auditTypes = auditValueAndDisplay(Timestamp.schema.paths.description.enumValues);
+    console.log(auditTypes);
+    res.render('admin/audit', {auditTypes});
+})
 
 module.exports = router;

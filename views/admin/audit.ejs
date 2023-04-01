@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Header-->
+	    <%- include('../partials/headers/header-admin.ejs')%>
+        
+        <link rel="stylesheet" href="/css/style.css">
+        <script type="text/javascript" src=""></script>
+    </head>
+
+    <body>
+        <form>
+            <div class="form-group col-md-12">
+                <select id="auditType" class="form-control" name="auditType">
+                    <option selected value="">Select a Type of Change</option>
+                    <% auditTypes.forEach(function(auditType) { %>
+                        <option value="<%= auditType.value %>"><%= auditType.display %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="dateRange">Date Range</label>
+                <div class="input-group">
+                  <input type="date" class="form-control" id="startDate" name="startDate" placeholder="Start Date">
+                  <span class="input-group-addon">to</span>
+                  <input type="date" class="form-control" id="endDate" name="endDate" placeholder="End Date">
+                </div>
+            </div>
+            <!--Search Button-->
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-primary">Find</button>
+            </div>
+        </form>
+
+        <div class="container  w-75">
+            <div class="panel panel-default" id="classEntry-container">
+            </div>
+        </div>
+
+        <!--Add/Help Button-->
+	    <%- include('../partials/help-button.ejs')%>
+
+    </body>
+</html>
