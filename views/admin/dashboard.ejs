@@ -4,16 +4,85 @@
 	    <%- include('../partials/headers/header-admin.ejs')%>
 
         <link rel="stylesheet" href="/css/style.css">
-        <style>
-            h1{
-                text-align: center;
-            }
-        </style>
 
     </head>
 
     <body>
-        <h1>Admin Dashboard</h1>
+        <div class="welcome-bar">
+            <h1>Welcome <%- user.name %>!</h1>
+        </div>
+        
+       <!--<div class="date">
+            <input type="date">
+        </div> --> 
+       
+        <!--------------- END OF WELCOME BAR ----------------->       
+        <div class="container">
+                <div class="recent-activities">
+                    <h2>Recent Activities</h2>
+                    <table>
+                        <thread>
+                            <tr>
+                                <!--Include role as well?-->
+                                <th>Time</th>
+                                <th>User</th>
+                                <th>Class</th>
+                                <th>Activity</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <td>1:20pm, April 2, 2023</td>
+                                <td>Britton Horn</td>
+                                <td>Software Engineering</td>
+                                <td>Remove Class</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#">Show All</a>
+                </div>
+            <main>
+                <div class="insights">
+                    <div class="student-count">
+                      <!--<span> Logo-->
+                       <div class="middle">
+                            <div class="left">
+                                <h3>Total Students</h3>
+                                <h1>10</h1>
+                            </div>
+                       </div> 
+                       <small class="text-muted">Last 24 Hours</small>   
+                    </div>
+                    <!----------- END OF STUDENT COUNT ------------>
+                    <div class="teacher-count">
+                        <!--<span> Logo-->
+                         <div class="middle">
+                              <div class="left">
+                                  <h3>Total Teachers</h3>
+                                  <h1>20</h1>
+                              </div>
+                         </div> 
+                         <small class="text-muted">Last 24 Hours</small>   
+                      </div>
+                      <!----------- END OF TEACHER COUNT ------------>
+        
+                      <div class="class-count">
+                        <!--<span> Logo-->
+                         <div class="middle">
+                              <div class="left">
+                                  <h3>Total Classes</h3>
+                                  <h1>1000</h1>
+                              </div>
+                         </div> 
+                         <small class="text-muted">Last 24 Hours</small>   
+                      </div>
+                      <!----------- END OF CLASS COUNT ------------>
+                </div>
+                <!--------------- END OF INSIGHTS ----------------->
+                <div class="forms"></div>
+            </main>
+        </div>
+
         <div>
             <a href="/admin/create-user">Create User</a>
         </div>
@@ -25,9 +94,6 @@
         <div>
             <a href="/admin/create-subject">Create Subject</a>
         </div>
-
-        <!--Add/Help Button-->
-	    <%- include('../partials/help-button.ejs')%>
 
     </body>
 </html>
