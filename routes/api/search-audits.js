@@ -25,6 +25,19 @@ router.get('/audits', async (req, res, next) => {
         if (query.subject) {
             filter['class.subject.className'] = { $regex: query.subject, $options: 'i' };
         }
+        if (query.startDate && query.endDate) {
+            /*Dates end just after midnight the previous day
+            This means searching for times between the 4th and 5th would only return
+            things that happened on the 4th since anything on the 5th is going to be later in the
+            day and not exactly after the previous day's midnight
+            We fix this by incrementing the endDate by one day such that it now ends at the next nigth's 
+            midnight; this is what endEndDate is: the end of the end date. 
+            */ 
+            const endDate = new Date(query.endDate)
+            var endEndDate = new Date();
+            endEndDate = endEndDate.setDate(endDate.getDate() + 1);
+            filter['timestamp'] = { $gte: new Date(query.startDate), $lte: endEndDate };
+        }
     
 
         // const blowMyBrainsOut = await Timestamp.find(filter);
@@ -54,13 +67,12 @@ router.get('/audits', async (req, res, next) => {
                     path: 'subject',
                     model: 'Subject',
                     retainNullValues: true
-                }
-                })
+                },
+                retainNullValues: true
+            })
             .populate('user')
+            .populate('student')
             .lean()
-
-        console.log(audits);
-        console.log(audits[0].class);
 
         res.render('partials/auditEntry', {audits: audits, layout: false}, function(err,html) {
             res.send('<div id="auditEntry-wrapper">' + html + '</div>');
