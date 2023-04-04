@@ -34,9 +34,15 @@ router.post('/', async (req, res) => {
     try {
         // Extracts the 'subject' and 'schedule' values from the query string
         const { subject, schedule } = req.body;
+        
+        /* Currently, subject isn't a subject: it is the name of the subject
+        We have to go and find the actual subject object to pass it into the new class
+        If we just put in the string then it throws an error
+        */ 
+        const subjectObject = await Subject.findOne({ className: subject }).exec();
 
         // Create a new Class object
-        const newClass = await addClass(subject, schedule, req.session.user)
+        const newClass = await addClass(subjectObject, schedule, req.session.user)
 
         // Return a success response
         res.redirect('/admin/dashboard')
