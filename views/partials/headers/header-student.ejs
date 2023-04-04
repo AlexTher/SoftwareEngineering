@@ -1,34 +1,12 @@
 <header>
-    <style>
-        .navbar {
-            position: fixed;
-            width: 100%;
-            overflow: hidden;
-            top: 0;
-            background-color: rgb(255, 255, 255);
-            height: 70px;
-            box-shadow: 1px 0px 12px 0px #cecece;
-        }
-        .navbar-nav{
-            color: beige;
-            margin-top: 10px;
-        }
-    </style>
-    <nav class="navbar">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/student/dashboard">
-                <img src = "/imgs/nexuslogo.png" alt="" width="40" height="40">
+    <div class="fixed-header">
+        <nav>
+            <a class="logo" href="/admin/dashboard">
+                <img src = "/imgs/nexuslogo.png" alt="" height="40" width="40">
             </a>
-          </div>
-          <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="#">Home</a></li>-->
-            <!--<li><a href="/admin/create-user">Add User</a></li>-->
-            <!--<li><a href="/admin/create-class">Add Class</a></li>-->
-            <li><a href="/student/classes">My Classes</a></li>
-            <li><a href="/student/search">Search</a></li>
-            <li><a href="/student/registration">Registration</a></li>
-          </ul>
-        </div>
-      </nav>
+            <a href="/student/classes">My Classes</a>
+            <a href="/student/search">Classes</a>
+            <a href="/student/registration">Calendar</a>
+        </nav>
+    </div>
 </header>

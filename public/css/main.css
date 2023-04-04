@@ -3,12 +3,12 @@
   border: 0;
 }
 
-body {
+/*body {
   flex-direction: column;
   display: flex;
-  /*align-items: center;
-  align-content: center;
-  justify-content: center;*/
+  //align-items: center;
+  //align-content: center;
+  //justify-content: center;
   font-family: "DINPro", "Helvetica Neue", sans-serif;
   margin: 0;
   background: #fafafa;
@@ -19,7 +19,7 @@ body {
 
 .offset {
 
-}
+}*/
 
 .outer {
 

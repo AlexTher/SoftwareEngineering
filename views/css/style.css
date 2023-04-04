@@ -19,6 +19,7 @@
 
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
+    --button-padding: 0.83rem;
 
     --box-shadow: 0 2rem 3rem var(--color-info-light);
 
@@ -53,7 +54,7 @@ body{
 .container{
     display: grid;
     width: 96%;
-    margin: auto;
+    margin: 0 auto;
     grid-template-columns: auto 23rem;
     gap: 1.8rem;
 }
@@ -108,16 +109,75 @@ p{
     color: var(--color-primary);
 }
 
+
+
+    /* ======================== HEADER VARIABLES ======================= */
+
+.fixed-header {
+    width: 100%;
+    height: 4.5rem;
+    position: fixed;
+    top: 0;
+    background: var(--color-white);
+    overflow: hidden;
+    /*box-shadow: var(--box-shadow);*/
+}
+nav a{
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    vertical-align: top;
+    padding: 1.65rem 25px;
+    display: inline-block;
+    transition: all 300ms ease;
+}
+
+nav a:hover{
+    padding: 1rem 20px;
+    color: var(--color-primary);
+    font-size: 1.15rem;
+    padding: 1.35rem 22px;
+    /*background: rgb(196, 196, 196);*/
+}
+
+nav .logo{
+  padding: 12px 17px;
+}
+
+nav .logo:hover{
+  padding: 12px 17px;
+}
+
+    /* ======================== WELCOME-BAR ======================= */
+
+.welcome-bar{
+    background-image: linear-gradient(
+        rgba(28, 28, 65, 0.45), 
+        rgba(0, 0, 0, 0.45)
+      ), url(https://i0.wp.com/sanantonioreport.org/wp-content/uploads/2017/01/ScottBall_Trinity_University_1-2-2017-2.jpg?fit=1200%2C800&ssl=1);
+    margin: auto;
+    padding: var(--card-padding);
+    width: 96%;
+    height: 16rem;
+    border-radius: var(--border-radius-3);
+}
+
+.welcome-bar h1{
+    color: var(--color-white);
+    margin-top: 10rem;
+}
+
     /* ======================== MAIN ======================= */
 
 main{
-    margin-top: 80px;
+    margin-top: 1rem;
 }
 
 main .insights{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.6rem;
+    /*margin-left: 0.8rem;*/
 }
 
 main .insights > div {
@@ -143,37 +203,228 @@ main .insights h3{
     margin: 1rem 0 0.6rem;
     font-size: 1rem;
 }
-    /* ======================== FORMS ======================= */
 
-form {
-    width: 450px;
-    padding-left: 7%;
-    padding-right: 7%;
-    padding-top: 4%;
-    padding-bottom: 2%;
-    /*border: 5px solid black;*/
-    background-color: white;
-    border-radius: 15px 15px 15px 15px;
-    display: inline-block;
-    align-items: center;
-    margin: 40px; 
-    box-shadow: 1px 0px 10px 0px #b0b0b0;
+main .insights small{
+    margin-top: 1rem;
+    display: block;
 }
 
-.form-group{
-    padding: 1.5%;
+main .recent-activities{
+    margin-top: 2rem;
+}    
+
+main .recent-activities h2{
+    margin-bottom: 0.8rem;
+}
+
+main .recent-activities table{
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transform: all 300ms ease;
+}
+
+main .recent-activities table:hover{
+    box-shadow: none;
+}
+
+main table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark);
+}
+
+main table tbody tr:last-child td{
+    border:none
+}
+
+main .recent-activities a{
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
+    /* ======================== DASHBOARD RIGHT SECTION ======================= */
+
+.right{
+    margin-top: 30px;
+    margin-left: 0.5rem;
+}
+
+.right h2{
+    margin-bottom: 0.8rem;
+}
+
+.right .admin-create-bar{
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+}
+
+.right .admin-create-bar h3{
+    font-weight: 500;
+}
+
+.right .admin-create-bar a{
+    display: flex;
+    color: var(--color-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+.right .admin-create-bar a span{
+    font-size: 1.6rem;
+}
+
+.right .admin-create-bar a:hover{
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0rem;
+}
+
+.right .admin-create-bar a:hover:before{
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+.right .active-classes{
+    margin-top: 2.3rem;
+}
+
+.right .active-classes a{
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
+.right .class-container{
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-padding);
+}
+
+.right .class-container h1{
+    margin-bottom: 1.6rem;
+}
+
+.right .class-format{
+    height: 3.6rem;
+    margin-top: 0.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark);
+}
+
+.right .class-format:last-child{
+    border: none;
+}
+
+
+    /* ======================== FORMS ======================= */
+
+.create-user, .create-class, .create-subject, .search-form {
+    margin: 5rem 32%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--card-padding);
+    border: none;
+    background: white;
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+}
+
+.search-form{
+    margin: 5rem 10%;
+}
+
+.form-input{
+    margin-top: 1.5rem;
+    /*padding: 0.5rem 1rem;*/
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+}
+
+input[type="text"], input[type="number"], input[type="password"]{
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background: transparent;
+    color: var(--color-dark);
+    border-radius: var(--border-radius-1);
+    transition: all 500ms ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus{
+    background: var(--color-light);
+}
+
+select{
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--color-dark);
+    width: 100%;
+    border-radius: var(--border-radius-1);
+    transition: all 500ms ease;
+}
+
+select:focus{
+    background: var(--color-light);
+}
+
+textarea{
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--color-dark);
+    width: 100%;
+    border-radius: var(--border-radius-1);
+    transition: all 500ms ease;
+}
+
+label{
+    margin-top: 1rem;
+}
+
+textarea:focus{
+    background: var(--color-light);
+}
+
+.create-user .btn-primary, .create-class .btn-primary, .create-subject .btn-primary, .search-form .btn-primary{
+    text-align: center;
+    display: block;
+    margin: 2rem auto;
+    color: var(--color-primary);
+}
+
+.create-user h1, .create-class h1, .create-subject h1{
+    text-align: center;
 }
 
 .btn-primary{
-    width: 250px;
-    border-radius: 25px 25px 25px 25px;
-    background-color: #fbc831;
-    -webkit-text-fill-color: rgb(255, 255, 255);
-    box-shadow: 0px 1px 1px 1px #c3c3c3;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius-2);
+    color: var(--color-white);
+    background: var(--color-primary);
+    text-decoration: none;
+    transition: all 300ms ease;
 }
 
 .btn-primary:hover{
-    background-color: #e5b010;
-    -webkit-text-fill-color: #ffffff;
-    /*box-shadow: 0px 1px 1px 1px #c3c3c3;*/
+    background: var(--color-light);
+    color: var(--color-primary);
+    box-shadow: var(--box-shadow);
 }

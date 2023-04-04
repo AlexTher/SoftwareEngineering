@@ -19,7 +19,7 @@
 </head>
 <body>
 	
-	<form role="form" class="form-horizontal" action="/add-subjects" method="POST">
+	<form role="form" class="create-subject" action="/add-subjects" method="POST">
 			
 		<!--Add Class Title-->
 		<div class="form-group">
@@ -27,13 +27,13 @@
 		</div>
 
 		<!--Class Name Text Box-->
-		<div class="form-group">
+		<div class="form-input">
 			<input type="text" class="form-control" name="className" placeholder="Course Name" required>
 		</div>
 
 		<!--Department Dropdown Menu-->
-		<div class="form-group">
-			<label for="department">Department:</label>
+		<label for="department">Department:</label>
+		<div class="form-input">
 			<select class="form-control" id="department" name="department" required>
 			  <% departments.forEach(function(department) { %>
 				<option value="<%= department %>"><%= department %></option>
@@ -42,8 +42,8 @@
 		</div>
 		
 		<!-- Credits Dropdown Menu -->
-		<div class="form-group">
-			<label for="credits">Credits:</label>
+		<label for="credits">Credits:</label>
+		<div class="form-input">
 			<select class="form-control" id="credits" name="credits" required>
 				<option>1</option>
 				<option>2</option>
@@ -58,14 +58,13 @@
 		</div>
 
 		<!--Class ID Text Box-->
-		<div class="form-group">
+		<div class="form-input">
 			<input type="number" class="form-control" name="classID" placeholder="Course ID" required>
 			<!--put restrictions on how long input ID can be?-->
 		</div>
 
 		<!--Pathways Selection Checkboxes-->
-		<div class="form-group">
-			<div class="form-row">
+		<div class="form-input">
 				<div class="col-xs-3" style="white-space:nowrap;">
 					<input type="checkbox" name="pathways[]" id="pathwaysWC" value="WC">
 					<label for="pathwaysWC">WC</label>
@@ -82,8 +81,6 @@
 					<input type="checkbox" name="pathways[]" id="pathwaysUD" value="UD">
 					<label for="pathwaysUD">UD</label>
 				</div>
-			</div>
-			<div class="form-row">
 				<div class="col-xs-3" style="white-space:nowrap;">
 					<input type="checkbox" name="pathways[]" id="pathwaysFL" value="FL">
 					<label for="pathwaysFL">FL</label>
@@ -100,17 +97,16 @@
 					<input type="checkbox" name="pathways[]" id="pathwaysNS" value="NS">
 					<label for="pathwaysNS">NS</label>
 				</div>
-			</div>
 		</div>
 
 		<!--Description Text Box-->
-		<div class="form-group">
-			<textarea class="form-control" id="comment" name="description" rows="5" placeholder="Short description for new class..."></textarea>	
+		<div class="form-input">
+			<textarea id="comment" name="description" rows="5" placeholder="Short description for new class..."></textarea>	
 		</div>
 
 		<!--Submit Button-->
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Add Class</button>
+			<button type="submit" class="btn-primary">Add Class</button>
 		</div>
 	</form>
 	

@@ -1,9 +1,10 @@
 <html>
     <head>
         <!--Header-->
-	    <%- include('../partials/headers/header-admin.ejs')%>
+	    <%- include('../partials/headers/header-admin.ejs')%> 
 
         <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     </head>
 
@@ -19,9 +20,6 @@
         <!--------------- END OF WELCOME BAR ----------------->       
         <div class="container">
             <main>
-                <div class="welcome-bar">
-                    <h1>Welcome <%- user.name %>!</h1>
-                </div>
                 <div class="insights">
                     <div class="student-count">
                       <!--<span> Logo-->
@@ -59,9 +57,7 @@
                       <!----------- END OF CLASS COUNT ------------>
                 </div>
                 <!--------------- END OF INSIGHTS ----------------->
-                <div class="forms"></div>
-            </main>
-            <div class="recent-activities">
+                <div class="recent-activities">
                     <h2>Recent Activities</h2>
                     <table>
                         <thread>
@@ -75,29 +71,69 @@
                         </thread>
                         <tbody>
                             <tr>
-                                <td>1:20pm, April 2, 2023</td>
+                                <td>4/3/23</td>
                                 <td>Britton Horn</td>
                                 <td>Software Engineering</td>
                                 <td>Remove Class</td>
                             </tr>
+                            <tr>
+                                <td>4/2/43</td>
+                                <td>Britton Horn</td>
+                                <td>Computer Design</td>
+                                <td>Edit Class</td>
+                            </tr>
                         </tbody>
                     </table>
                     <a href="#">Show All</a>
+                </div>
+                <!--------------- END OF RECENY ACTIVITIES ----------------->
+            </main>
+            <!--------------- END OF MAIN ----------------->
+            <div class="right">
+                <h2>Creation Station</h2>
+                <div class="admin-create-bar">
+                    <a href="/admin/create-user">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <h3>Create User</h3>
+                    </a>
+                    <a href="/admin/create-class">
+                        <span class="material-symbols-outlined">school</span>
+                        <h3>Create Class</h3>
+                    </a>
+                    <a href="/admin/create-subject">
+                        <span class="material-symbols-outlined">subject</span>
+                        <h3>Create Subject</h3>
+                    </a>
+                </div>
+                <!--------------- END OF ADMIN CREATION BAR ----------------->
+                <div class="active-classes">
+                    <h2>Active Classes</h2>
+                    <div class="class-container">
+                        <h3>1:20pm</h3>
+                        <h1>May 24, 2025</h1>
+                        <div class="class-format">
+                            <h4>Class Name</h4>
+                            <small>1:15-1:23pm</small>
+                        </div>
+                        <div class="class-format">
+                            <h4>Class Name</h4>
+                            <small>1:15-1:23pm</small>
+                        </div>
+                        <div class="class-format">
+                            <h4>Class Name</h4>
+                            <small>1:15-1:23pm</small>
+                        </div>
+                        <div class="class-format">
+                            <h4>Class Name</h4>
+                            <small>1:15-1:23pm</small>
+                        </div>
+                    </div>
+                    <a href="#">Load All</a>
+                </div>
+                <!--------------- END OF ACTIVE CLASSES ----------------->
             </div>
+            <!--------------- END OF RIGHT ----------------->
         </div>
-
-        <div>
-            <a href="/admin/create-user">Create User</a>
-        </div>
-
-        <div>
-            <a href="/admin/create-class">Create Class</a>
-        </div>
-
-        <div>
-            <a href="/admin/create-subject">Create Subject</a>
-        </div>
-
     </body>
 </html>
 

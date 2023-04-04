@@ -12,27 +12,18 @@
 
         <link rel="stylesheet" href="/css/style.css">
 
-        <style>
-            form{
-                width: 900px;
-                padding-left: 4%;
-                padding-right: 4%;
-                padding-top: 3%;
-                padding-bottom: 3%;
-            }
-        </style>
         <script type="text/javascript" src="/public/javascripts/subject-populator.js"></script>
         <script type="text/javascript" src="/public/javascripts/class-populator.js"></script>
         <script type="text/javascript" src="/public/javascripts/student-class-registration.js"></script>
     </head>
     <body>
-        <form>
-        <form role="form" class="form-horizontal" action="/search-classes/classes" method="GET">
+
+        <form role="form" class="search-form" action="/search-classes/classes" method="GET">
 
         <div class="form-row">
 
             <!--Subject Dropdown Menu-->
-            <div class="form-group col-md-8">
+            <div class="form-input">
                 <select id="department" class="form-control" name="department">
                     <option selected value="">Select a Department...</option>
                     <% departments.forEach(function(department) { %>
@@ -43,7 +34,7 @@
             </div>
 
             <!--Course ID Text Box-->
-            <div class="form-group col-md-4">
+            <div class="form-input">
                 <input type="number" class="form-control" id="classID" name="classID" min="1000" max="9999" placeholder="Course ID">
                 <!--Maybe have hover over note for fields to help student with format-->
             </div>
@@ -51,7 +42,7 @@
 
         <div class="form-row">
             <!--Pathway Dropdown Menu-->
-            <div class="form-group col-md-3">
+            <div class="form-input">
                 <select id="pathway" name="pathway" class="form-control">
                     <option selected value="">Pathways...</option>
                     <% pathways.forEach(function(pathway) { %>
@@ -61,7 +52,7 @@
             </div>
 
             <!--Credit Dropdown Menu-->
-            <div class="form-group col-md-2">
+            <div class="form-input">
                 <select id="credits" name="credits" class="form-control">
                     <option selected value="">Credits...</option>
                     <% credits.forEach(function(credit) { %>
@@ -71,7 +62,7 @@
             </div>
 
             <!--Time Dropdown Menu-->
-            <div class="form-group col-md-3">
+            <div class="form-input">
                     <select class="form-control" id="schedule" name="schedule" required>
                         <option selected>Time...</option>
                         <% schedules.forEach(function(schedule) { %>
@@ -82,7 +73,7 @@
             </div>
                
             <!--Course Level-->
-            <div class="form-group col-md-4">
+            <div class="form-input">
                 <select id="inputLevel" name="inputLevel" class="form-control">
                     <option selected value="">Course Level...</option>
                         <option value="1">1000</option>
@@ -97,7 +88,7 @@
 
         <div class="form-row">
             <!--Class name-->
-            <div class="form-group col-md-8">
+            <div class="form-input">
                 <select class="form-control" id="className" name="subject">
                     <option selected value="">Select a Class...</option>
                     <% subjects.forEach(function(subject) { %>
@@ -107,17 +98,17 @@
             </div>
 
             <!--Professor-->
-            <div class="form-group col-md-4">
+            <div class="form-input">
                 <input type="text" class="form-control" id="inputProf" placeholder="Professor Name...">
             </div>
-            </div>
+        </div>
 
             <div class="form-row">
             <!--Weekday Selection Checkboxes-->
             <div class="form-group col-md-7">
             </div>
 
-            <div class="form-group col-md-5">
+            <div class="form-input">
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
                     M
@@ -145,7 +136,7 @@
 
             <!--Search Button-->
             <div class="form-group col-md-12">
-                <button type="submit" class="btn btn-primary">Find</button>
+                <button type="submit" class="btn-primary"><h2>Find</h2></button>
             </div>
         </div>
     </form>

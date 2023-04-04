@@ -10,38 +10,36 @@
 	<link rel="stylesheet" href="/css/style.css">
 
 	<style>
-		form{	
+		/*form{	
 			width: 425px;
 			padding-left: 5%;
 			padding-right: 5%;
 			padding-bottom: 4%;
-		}
+		}*/
 	</style>
 
 </head>
 <body>
 	
-	<form action="/create-user" method="POST">
+	<form action="/create-user" class="create-user" method="POST">
 			
 			<!--Add User Title-->
-			<div class="form-group">
 				<h1> Add User </h1>
-			</div>
 
 			<!--Name Text Box-->
-			<div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+			<div class="form-input">
+                <input type="text" name="name" placeholder="Full Name" required>
 			</div>
 
 			<!--User ID Text Box-->
-			<div class="form-group">
-            	<input type="number" class="form-control" name="ID" placeholder="User ID" required>	
+			<div class="form-input">
+            	<input type="number" name="ID" placeholder="User ID" required>	
 				<!--put restrictions on how long input ID can be?-->
 			</div>
 
 			<!--Status Dropdown Menu-->
-			<div class="form-group">
-                <select name="role" class="form-control" required>
+			<div class="form-input">
+                <select name="role" required>
                     <option selected>Status...</option>
                     <option value="admin">Admin</option>
                     <option value="teacher">Teacher</option>
@@ -50,19 +48,19 @@
 			</div>
 
 			<!--Email Text Box-->
-			<div class="form-group">
-            	<input type="text" class="form-control" name="email" placeholder="Email" required>	
+			<div class="form-input">
+            	<input type="text" name="email" placeholder="Email" required>	
 			</div>
 
 			<!--Password Text Box-->
-			<div class="form-group">
-            	<input type="password" class="form-control" name="password" placeholder="Password">	
+			<div class="form-input">
+            	<input type="password" name="password" placeholder="Password">	
 				<!--randmonly generate password?-->
 			</div>
 
 			<!--Submit Button-->
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Add User</button>
+				<button type="submit" class="btn-primary">Add User</button>
 			</div>
 	</form>
 

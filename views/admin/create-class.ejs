@@ -9,38 +9,33 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 
-	<style>
-		form{
-  			padding-left: 5%;
-			padding-right: 5%;
-		}
-
-	</style>
-
 	<script type="text/javascript" src="/public/javascripts/subject-populator.js"></script>
 
 </head>
 <body>
 	
-	<form role="form" class="form-horizontal" action="/add-classes" method="POST">
+	<form role="form" class="create-class" action="/add-classes" method="POST">
+
+		<h1> Add Class </h1>
+
 		<!-- Department Dropdown -->
-		<div class="form-group">
-			<label for="department">Department:</label>
-			<select class="form-control" id="department" name="department" required>
+		<label for="department">Department:</label>
+		<div class="form-input">
+			<select id="department" name="department" required>
 			  <% departments.forEach(function(department) { %>
 				<option value="<%= department %>"><%= department %></option>
 			  <% }); %>
 			</select>
 		</div>
 		<!-- Subject Dropdown -->
-		<div class="form-group">
-			<label for="className">Class name:</label>
-			<select class="form-control" id="className" name="subject" required>
+		<label for="className">Class name:</label>
+		<div class="form-input">
+			<select id="className" name="subject" required>
 			</select>
 		</div>
 		<!-- Schedule Dropdown -->
-		<div class="form-group">
-			<label for="schedule">Schedule:</label>
+		<label for="schedule">Schedule:</label>
+		<div class="form-input">
 			<select class="form-control" id="schedule" name="schedule" required>
 				<% schedules.forEach(function(schedule) { %>
 					<option value="<%= schedule._id %>"><%= schedule.classTimes[0].day %> <%= schedule.classTimes[1].day %> <%= schedule.classTimes[0].startTime %> - <%= schedule.classTimes[0].endTime %></option>
@@ -50,7 +45,7 @@
 
 		<!--Submit Button-->
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Add Class</button>
+			<button type="submit" class="btn-primary">Add Class</button>
 		</div>
 	</form>
 
