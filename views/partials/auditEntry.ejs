@@ -1,0 +1,48 @@
+<% for (var i=0; i < audits.length; i++) { %>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <h1 style="text-align: center;">
+                Type of change: <%= audits[i].description %>
+            </h1>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-xs-8">
+            <h1>
+                Author: <%= audits[i].user.name %> (<%= audits[i].user.role %>)
+            </h1>
+        </div>
+        <div class="col-xs-4">
+            <h1>
+                Date: <%= audits[i].timestamp %>
+            </h1>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>
+                    Class
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-8">
+                    <h3>
+                        <%= audits[i].class.subject.className %>
+                    </h3>
+                </div>
+                <!--Displays Class Subject-->
+                <div class="col-xs-4">
+                    <h3>
+                        <%= audits[i].class.subject.classID %>-<%= audits[i].class.subject.department %>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        
+    </div>
+</div>
+<% } %>

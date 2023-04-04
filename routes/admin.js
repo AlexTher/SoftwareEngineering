@@ -80,8 +80,9 @@ router.get('/audit', restrictAccess(roles.ADMIN), async (req,res) => {
     }
 
     const auditTypes = auditValueAndDisplay(Timestamp.schema.paths.description.enumValues);
-    console.log(auditTypes);
-    res.render('admin/audit', {auditTypes});
+    const subjects = await Subject.find();
+    const departments = await Subject.distinct('department');
+    res.render('admin/audit', {auditTypes, departments, subjects});
 })
 
 module.exports = router;

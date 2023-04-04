@@ -32,5 +32,12 @@ router.get('/student-class-unregistration.js', (req, res) => {
     res.send(fileContents);
 });
 
+router.get('/admin-audit-populator.js', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'admin-audit-populator.js');
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    res.set('Content-Type', 'application/javascript');
+    res.send(fileContents);
+});
+
 
 module.exports = router;
