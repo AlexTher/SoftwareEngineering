@@ -36,6 +36,7 @@
 }
 
 html{
+    margin-top: 80px;
     font-size: 14px;
 }
 
@@ -52,9 +53,9 @@ body{
 .container{
     display: grid;
     width: 96%;
-    margin: 1rem auto;
-    gap: 1.8rem;
+    margin: auto;
     grid-template-columns: auto 23rem;
+    gap: 1.8rem;
 }
 
 a{
@@ -73,7 +74,7 @@ h1{
 }
 
 h2{
-    font-size: 0.4rem;
+    font-size: 1.4rem;
 }
 
 h3{

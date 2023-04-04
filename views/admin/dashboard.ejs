@@ -18,30 +18,10 @@
        
         <!--------------- END OF WELCOME BAR ----------------->       
         <div class="container">
-                <div class="recent-activities">
-                    <h2>Recent Activities</h2>
-                    <table>
-                        <thread>
-                            <tr>
-                                <!--Include role as well?-->
-                                <th>Time</th>
-                                <th>User</th>
-                                <th>Class</th>
-                                <th>Activity</th>
-                            </tr>
-                        </thread>
-                        <tbody>
-                            <tr>
-                                <td>1:20pm, April 2, 2023</td>
-                                <td>Britton Horn</td>
-                                <td>Software Engineering</td>
-                                <td>Remove Class</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="#">Show All</a>
-                </div>
             <main>
+                <div class="welcome-bar">
+                    <h1>Welcome <%- user.name %>!</h1>
+                </div>
                 <div class="insights">
                     <div class="student-count">
                       <!--<span> Logo-->
@@ -81,6 +61,29 @@
                 <!--------------- END OF INSIGHTS ----------------->
                 <div class="forms"></div>
             </main>
+            <div class="recent-activities">
+                    <h2>Recent Activities</h2>
+                    <table>
+                        <thread>
+                            <tr>
+                                <!--Include role as well?-->
+                                <th>Time</th>
+                                <th>User</th>
+                                <th>Class</th>
+                                <th>Activity</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <td>1:20pm, April 2, 2023</td>
+                                <td>Britton Horn</td>
+                                <td>Software Engineering</td>
+                                <td>Remove Class</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#">Show All</a>
+            </div>
         </div>
 
         <div>
