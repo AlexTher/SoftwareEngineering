@@ -24,14 +24,15 @@ document.addEventListener("DOMContentLoaded", function() {
         $('#class-fields').hide();
         $('#auditType').on('change', function() {
             var selectedOption = $(this).find(':selected').val();
-            console.log(selectedOption);
             
             // if the selected option contains the word 'class', show the fields
             if (selectedOption.includes('class')) {
               $('#class-fields').show();
+              $('#class-fields :input').prop('disabled', false);
             } else {
               // otherwise, hide the fields
               $('#class-fields').hide();
+              $('#class-fields :input').prop('disabled', true);
             }
           });
     });
