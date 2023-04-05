@@ -25,8 +25,8 @@ for (let i = 0; i < 29; i++) {
       maker = true}
     }
     else if((i/2)+4 == hour){
-      
-      cell.innerHTML = '<div class="event double" style ="height: 525%;"><input id="check" type="checkbox" class="checkbox" /><label for="check"></label>' + classes[0].start + '-'+ classes[0].end+ ' Class</div>'
+      curr_height =timemath(classes[0].start,classes[0].end)
+      cell.innerHTML = '<div class="event double" style ="height:'+curr_height+'%;"><input id="check" type="checkbox" class="checkbox" /><label for="check"></label>' + classes[0].start + '-'+ classes[0].end+ ' Class</div>'
       
     }
     
@@ -46,7 +46,27 @@ for (let i = 0; i < 29; i++) {
 //tbl.appendChild(tblBody);
 // appends <table> into <body>
 //document.body.appendChild(tbl);  
-
+function timemath(t1,t2){
+  
+  const t1_array = t1.split(":");
+  const t2_array = t2.split(":");
+  
+  
+  var hours = t2_array[0]-t1_array[0];
+  var minutes = t2_array[1]-t1_array[1];
+  
+  console.log(hours);
+  console.log(minutes);
+  
+  
+  minutes = minutes+(hours*60);
+  hours = 0;
+  
+  const height = 3.5*minutes;
+  
+  return(height)
+  
+}
 function msg(){  
     
 
