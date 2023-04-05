@@ -18,6 +18,13 @@ router.get('/class-populator.js', (req, res) => {
     res.send(fileContents);
 });
 
+router.get('/class-subject-populator.js', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'class-subject-populator.js');
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    res.set('Content-Type', 'application/javascript');
+    res.send(fileContents);
+});
+
 router.get('/student-class-registration.js', (req, res) => {
     const filePath = path.join(__dirname, '..', 'public', 'javascripts', 'student-class-registration.js');
     const fileContents = fs.readFileSync(filePath, 'utf8');
