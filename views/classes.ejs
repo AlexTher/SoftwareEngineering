@@ -108,7 +108,7 @@
             <div class="form-group col-md-7">
             </div>
 
-            <div class="form-input">
+            <div class="pathways">
                 <label class="checkbox-inline">
                     <input type="checkbox" value="">
                     M
@@ -136,10 +136,28 @@
 
             <!--Search Button-->
             <div class="form-group col-md-12">
-                <button type="submit" class="btn-primary"><h2>Find</h2></button>
+                <button type="submit" class="btn-primary">Find</button>
+                <!--Add search icon instead-->
             </div>
         </div>
     </form>
+    <div class="search-form-result">
+        <table>
+            <thread>
+                <tr>
+                    <!--Include role as well?-->
+                    <th>Class ID</th>
+                    <th>Name</th>
+                    <th>Teacher</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Capacity</th>
+                    <th>Wishlist</th>
+                </tr>
+            </thread>
+            <tbody id="classEntry-container"></tbody>
+        </table>
+    </div>
 
         <div class="container w-75" id="classEntry-container"></div>
 

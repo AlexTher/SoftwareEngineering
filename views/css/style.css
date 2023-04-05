@@ -287,6 +287,10 @@ main .recent-activities a{
     font-size: 1.6rem;
 }
 
+.right .admin-create-bar:hover{
+    box-shadow: none;
+}
+
 .right .admin-create-bar a:hover{
     background: var(--color-light);
     color: var(--color-primary);
@@ -320,6 +324,10 @@ main .recent-activities a{
     padding: var(--card-padding);
 }
 
+.right .class-container:hover{
+    box-shadow: none;
+}
+
 .right .class-container h1{
     margin-bottom: 1.6rem;
 }
@@ -338,7 +346,7 @@ main .recent-activities a{
 
     /* ======================== FORMS ======================= */
 
-.create-user, .create-class, .create-subject, .search-form {
+.create-user, .create-class, .create-subject, .search-form, .login-form {
     margin: 5rem 32%;
     display: flex;
     flex-direction: column;
@@ -360,7 +368,7 @@ main .recent-activities a{
     border-radius: var(--border-radius-1);
 }
 
-input[type="text"], input[type="number"], input[type="password"]{
+input[type="text"], input[type="number"], input[type="password"], input[type="email"]{
     padding: 0.5rem 1rem;
     width: 100%;
     background: transparent;
@@ -369,7 +377,7 @@ input[type="text"], input[type="number"], input[type="password"]{
     transition: all 500ms ease;
 }
 
-input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus{
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
     background: var(--color-light);
 }
 
@@ -395,19 +403,26 @@ textarea{
     transition: all 500ms ease;
 }
 
+input[type="checkbox"]{
+    appearance: checkbox;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0.5rem;
+    /*To actually change appearence of checkboxes, you have to make your own custom ones and hiden the current ones*/
+}
+
 label{
-    margin-top: 1rem;
+    margin-left: 0.5rem;
 }
 
 textarea:focus{
     background: var(--color-light);
 }
 
-.create-user .btn-primary, .create-class .btn-primary, .create-subject .btn-primary, .search-form .btn-primary{
+.create-user .btn-primary, .create-class .btn-primary, .create-subject .btn-primary, .search-form .btn-primary, .login-form .btn-primary{
     text-align: center;
     display: block;
     margin: 2rem auto;
-    color: var(--color-primary);
 }
 
 .create-user h1, .create-class h1, .create-subject h1{
@@ -428,3 +443,33 @@ textarea:focus{
     color: var(--color-primary);
     box-shadow: var(--box-shadow);
 }
+
+.search-form .pathways{
+    margin-top: 1rem;
+    align-items: center;
+}
+
+
+    /* ======================== SEARCH RESULTS ======================= */
+
+
+    .search-form-result table{
+        background: var(--color-white);
+        width: 90%;
+        margin: auto;
+        border-radius: var(--card-border-radius);
+        padding: var(--card-padding);
+        text-align: center;
+        box-shadow: var(--box-shadow);
+        transform: all 300ms ease;
+    }
+    
+    .search-form-result table tbody td{
+        height: 2.8rem;
+        border-bottom: 1px solid var(--color-light);
+        color: var(--color-dark);
+    }
+    
+    .search-form-result table tbody tr:last-child td{
+        border:none
+    }

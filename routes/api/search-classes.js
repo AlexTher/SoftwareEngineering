@@ -48,10 +48,12 @@ router.get('/classes', async (req, res, next) => {
             .lean()
             .exec();
 
-        var classEntryType = 'partials/classEntries/' + req.session.user.role + 'ClassEntry'
+        //var classEntryType = 'partials/classEntries/' + req.session.user.role + 'ClassEntry'
+
+        var classEntryType = 'partials/classEntries/adminClassEntryCopy'
 
         res.render(classEntryType, {classes: classes, layout: false}, function(err,html) {
-            res.send('<div id="classEntry-wrapper">' + html + '</div>');
+            res.send('<tr id="classEntry-wrapper">' + html + '</tr>');
         });
         
     } catch (err) {
