@@ -48,6 +48,14 @@ router.get('/classes', async (req, res, next) => {
             .lean()
             .exec();
 
+        classes.forEach(function(_class) {
+            if (_class.schedule) {
+            } else {
+                console.log("undefined");
+                console.log(_class);
+            }
+        });
+
         var classEntryType = 'partials/classEntries/' + req.session.user.role + 'ClassEntry'
 
         res.render(classEntryType, {classes: classes, layout: false}, function(err,html) {

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     })),
                     subjects.forEach(function(subject) {
                         $classNameSelect.append($('<option>', {
-                            value: subject._id,
+                            value: subject.className,
                             text: subject.department + subject.classID + " - " + subject.className
                         }));
                     });
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     })),
                     subjects.forEach(function(subject) {
                         $classNameSelect.append($('<option>', {
-                            value: subject._id,
+                            value: subject.className,
                             text: subject.classID + " - " + subject.className
                         }));
                     });
